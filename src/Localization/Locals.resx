@@ -643,4 +643,11 @@
   <data name="SeparateIpLoggersByPortTooltip" xml:space="preserve">
     <value>Разделять UDP логгеры по портам</value>
   </data>
+  <data name="ColumnsVisibility" xml:space="preserve">
+    <value>Видимость столбца</value>
+    <comment>visibility of all columns</comment>
+  </data>
+  <data name="ColumnsVisibilityToolTip" xml:space="preserve">
+    <value>Индивидуальные элементы управления видимостью столбцов</value>
+  </data>
 </root>

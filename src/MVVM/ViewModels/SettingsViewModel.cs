@@ -37,6 +37,10 @@ namespace LogViewer.MVVM.ViewModels
         private SolidColorBrush fontColor = new SolidColorBrush(Colors.White);
         private bool isShowSourceColumn;
         private bool isShowThreadColumn;
+        private bool isShowColorColumn;
+        private bool isShowTimeColumn;
+        private bool isShowMessageColumn;
+        private bool isShowLevelColumn;
         private bool isShowTaskbarProgress;
         private bool showMessageHighlightByReceiverColor;
         private bool isSeparateIpLoggersByPort;
@@ -379,6 +383,55 @@ namespace LogViewer.MVVM.ViewModels
             }
         }
 
+
+
+
+
+        public bool IsShowColorColumn
+        {
+            get => isShowColorColumn;
+            set
+            {
+                isShowColorColumn = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsShowTimeColumn
+        {
+            get => isShowTimeColumn;
+            set
+            {
+                isShowTimeColumn = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+
+        public bool IsShowMessageColumn
+        {
+            get => isShowMessageColumn;
+            set
+            {
+                isShowMessageColumn = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+        public bool IsShowLevelColumn
+        {
+            get => isShowLevelColumn;
+            set
+            {
+                isShowLevelColumn = value;
+                OnPropertyChanged();
+            }
+        }
+
         public bool IsShowSourceColumn
         {
             get => isShowSourceColumn;
@@ -474,6 +527,10 @@ namespace LogViewer.MVVM.ViewModels
                 SelectedFontColor = SelectedFontColor.FromARGB(Settings.Instance.FontColor);
                 IsShowSourceColumn = Settings.Instance.IsShowSourceColumn;
                 IsShowThreadColumn = Settings.Instance.IsShowThreadColumn;
+                IsShowLevelColumn = Settings.Instance.IsShowLevelColumn;
+                IsShowColorColumn = Settings.Instance.IsShowColorColumn;
+                IsShowMessageColumn = Settings.Instance.IsShowMessageColumn;
+                IsShowTimeColumn = Settings.Instance.IsShowTimeColumn;
                 IsShowTaskbarProgress = Settings.Instance.IsShowTaskbarProgress;
                 ShowMessageHighlightByReceiverColor = Settings.Instance.ShowMessageHighlightByReceiverColor;
                 IsSeparateIpLoggersByPort = Settings.Instance.IsSeparateIpLoggersByPort;
@@ -571,6 +628,10 @@ namespace LogViewer.MVVM.ViewModels
             Settings.Instance.AutoStartInStartup = IsAutoStartReadAtStartup;
             Settings.Instance.IsShowSourceColumn = IsShowSourceColumn;
             Settings.Instance.IsShowThreadColumn = IsShowThreadColumn;
+            Settings.Instance.IsShowColorColumn = IsShowColorColumn;
+            Settings.Instance.IsShowLevelColumn = IsShowLevelColumn;
+            Settings.Instance.IsShowTimeColumn = IsShowTimeColumn;
+            Settings.Instance.IsShowMessageColumn = IsShowMessageColumn;
             Settings.Instance.IsShowTaskbarProgress = IsShowTaskbarProgress;
             Settings.Instance.ShowMessageHighlightByReceiverColor = ShowMessageHighlightByReceiverColor;
             Settings.Instance.CurrentTheme = SelectedTheme;
@@ -587,7 +648,7 @@ namespace LogViewer.MVVM.ViewModels
 
             if (!string.IsNullOrEmpty(currentThemeName) && SelectedTheme.Name != currentThemeName)
                 Settings.Instance.ApplyTheme();
-            if(!Equals(TranslationSource.Instance.CurrentCulture, SelectedLanguage))
+            if (!Equals(TranslationSource.Instance.CurrentCulture, SelectedLanguage))
                 Settings.Instance.ApplyLanguage(SelectedLanguage);
 
             window.DialogResult = Settings.Instance.Save();

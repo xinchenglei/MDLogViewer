@@ -282,8 +282,8 @@
     <EmbeddedResource Include="Localization\Locals.en.resx" />
     <EmbeddedResource Include="Localization\Locals.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Locals.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Locals.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

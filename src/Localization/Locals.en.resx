@@ -123,168 +123,6 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
-  <data name="Author" xml:space="preserve">
-    <value>Author: </value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="ClearAll" xml:space="preserve">
-    <value>Clear All</value>
-  </data>
-  <data name="CollapseAll" xml:space="preserve">
-    <value>Collapse All</value>
-  </data>
-  <data name="Color" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="FeaturesStr1" xml:space="preserve">
-    <value>- Read logs from UDP package by log4j template;</value>
-  </data>
-  <data name="FeaturesStr2" xml:space="preserve">
-    <value>- Export and import log files;</value>
-  </data>
-  <data name="FeaturesStr3" xml:space="preserve">
-    <value>- Sorting and filtering received logs;</value>
-  </data>
-  <data name="FeaturesStr4" xml:space="preserve">
-    <value>- and many other features (for details see ReleaseNotes).</value>
-  </data>
-  <data name="IgnoredIPAddresses" xml:space="preserve">
-    <value>Ignored IP Addresses</value>
-  </data>
-  <data name="IgnoredList" xml:space="preserve">
-    <value>Ignored List</value>
-  </data>
-  <data name="IPAddress" xml:space="preserve">
-    <value>IP Address</value>
-  </data>
-  <data name="ListOfReceivers" xml:space="preserve">
-    <value>List of Network Receivers</value>
-  </data>
-  <data name="LogCount" xml:space="preserve">
-    <value>Logs count</value>
-  </data>
-  <data name="Logger" xml:space="preserve">
-    <value>Logger</value>
-  </data>
-  <data name="LogViewerFeatures" xml:space="preserve">
-    <value>Log Viewer features:</value>
-  </data>
-  <data name="Message" xml:space="preserve">
-    <value>Message</value>
-  </data>
-  <data name="MessageDetails" xml:space="preserve">
-    <value>Message Details</value>
-  </data>
-  <data name="Port" xml:space="preserve">
-    <value>Port</value>
-  </data>
-  <data name="ReceiverName" xml:space="preserve">
-    <value>Receiver Name:</value>
-  </data>
-  <data name="Receivers" xml:space="preserve">
-    <value>Receivers</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="SinevViktor" xml:space="preserve">
-    <value>Sinev Viktor</value>
-  </data>
-  <data name="Thread" xml:space="preserve">
-    <value>Thread</value>
-  </data>
-  <data name="Time" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="UDPPortNumber" xml:space="preserve">
-    <value>UDP Port Number:</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>Version: </value>
-  </data>
-  <data name="AutoStartReadingLogsAtStartup" xml:space="preserve">
-    <value>Auto start reading logs at startup:</value>
-  </data>
-  <data name="AutoStartReadingLogsAtStartupToolTip" xml:space="preserve">
-    <value>Start read logs immediately when application startup</value>
-  </data>
-  <data name="Configuration" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
-  <data name="CountOfDeletedMessages" xml:space="preserve">
-    <value>Count of deleted messages:</value>
-  </data>
-  <data name="CountOfDeletedMessagesToolTip" xml:space="preserve">
-    <value>Count of messages to be deleted if buffer is overflow</value>
-  </data>
-  <data name="DisplayedDataFormat" xml:space="preserve">
-    <value>Displayed date format:</value>
-  </data>
-  <data name="DisplayedDataFormatToolTip" xml:space="preserve">
-    <value>Displayed date format</value>
-  </data>
-  <data name="General" xml:space="preserve">
-    <value>General</value>
-  </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>Is Active</value>
-  </data>
-  <data name="Launguage" xml:space="preserve">
-    <value>Language:</value>
-  </data>
-  <data name="LaunguageToolTip" xml:space="preserve">
-    <value>UI Language</value>
-  </data>
-  <data name="MaxMessageBufferSize" xml:space="preserve">
-    <value>Max message buffer size:</value>
-  </data>
-  <data name="MaxMessageBufferSizeToolTip" xml:space="preserve">
-    <value>Maximum count of log messages that can be stored in buffer</value>
-  </data>
-  <data name="MinimizeToTrayIcon" xml:space="preserve">
-    <value>Minimize to Tray Icon:</value>
-  </data>
-  <data name="MinimizeToTrayIconToolTip" xml:space="preserve">
-    <value>Shows a tray icon when LogViewer is minimized</value>
-  </data>
-  <data name="OnlyOneInstanceOfApp" xml:space="preserve">
-    <value>Only one instance of app:</value>
-  </data>
-  <data name="OnlyOneInstanceOfAppToolTip" xml:space="preserve">
-    <value>Only one instance of Log Viewer in system</value>
-  </data>
-  <data name="SetDefault" xml:space="preserve">
-    <value>Set Default</value>
-  </data>
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="ShowSourceColumn" xml:space="preserve">
-    <value>Show data source column:</value>
-  </data>
-  <data name="ShowSourceColumnToolTip" xml:space="preserve">
-    <value>Show data source column in log table. Displays where this message came from (file or IP)</value>
-  </data>
-  <data name="Theme" xml:space="preserve">
-    <value>Theme:</value>
-  </data>
-  <data name="ThemeFontColor" xml:space="preserve">
-    <value>Theme font color:</value>
-  </data>
-  <data name="ThemeFontColorToolTip" xml:space="preserve">
-    <value>Theme font color</value>
-  </data>
   <data name="AddCurrentIPtoIgnoreList" xml:space="preserve">
     <value>Add current IP to Ignore List</value>
   </data>
@@ -297,8 +135,23 @@
   <data name="ApplicationTheme" xml:space="preserve">
     <value>Application theme</value>
   </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author: </value>
+  </data>
+  <data name="AutoStartReadingLogsAtStartup" xml:space="preserve">
+    <value>Auto start reading logs at startup:</value>
+  </data>
+  <data name="AutoStartReadingLogsAtStartupToolTip" xml:space="preserve">
+    <value>Start read logs immediately when application startup</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
+  </data>
+  <data name="ClearAll" xml:space="preserve">
+    <value>Clear All</value>
   </data>
   <data name="ClearAllLogsToolTip" xml:space="preserve">
     <value>Clear all logs (Ctr+R)</value>
@@ -308,6 +161,30 @@
   </data>
   <data name="ClearSearchResultToolTip" xml:space="preserve">
     <value>Clear search result (Shift+R)</value>
+  </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>Collapse All</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="CountOfDeletedMessages" xml:space="preserve">
+    <value>Count of deleted messages:</value>
+  </data>
+  <data name="CountOfDeletedMessagesToolTip" xml:space="preserve">
+    <value>Count of messages to be deleted if buffer is overflow</value>
+  </data>
+  <data name="DisplayedDataFormat" xml:space="preserve">
+    <value>Displayed date format:</value>
+  </data>
+  <data name="DisplayedDataFormatToolTip" xml:space="preserve">
+    <value>Displayed date format</value>
   </data>
   <data name="DontReceiveThisLogger" xml:space="preserve">
     <value>Don't Receive this Logger</value>
@@ -334,6 +211,18 @@
   <data name="ExportLogsToFileToolTip" xml:space="preserve">
     <value>Export all logs to file (Ctrl+S)</value>
   </data>
+  <data name="FeaturesStr1" xml:space="preserve">
+    <value>- Read logs from UDP package by log4j template;</value>
+  </data>
+  <data name="FeaturesStr2" xml:space="preserve">
+    <value>- Export and import log files;</value>
+  </data>
+  <data name="FeaturesStr3" xml:space="preserve">
+    <value>- Sorting and filtering received logs;</value>
+  </data>
+  <data name="FeaturesStr4" xml:space="preserve">
+    <value>- and many other features (for details see ReleaseNotes).</value>
+  </data>
   <data name="FindAllHotKeys" xml:space="preserve">
     <value>Find All (Ctrl+F)</value>
   </data>
@@ -351,6 +240,9 @@
   </data>
   <data name="FoundLogs" xml:space="preserve">
     <value>Fount Logs:</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="GeneralSettings" xml:space="preserve">
     <value>General Settings</value>
@@ -370,6 +262,12 @@
   <data name="GoToTimestamp" xml:space="preserve">
     <value>Go to Timestamp</value>
   </data>
+  <data name="IgnoredIPAddresses" xml:space="preserve">
+    <value>Ignored IP Addresses</value>
+  </data>
+  <data name="IgnoredList" xml:space="preserve">
+    <value>Ignored List</value>
+  </data>
   <data name="ImportLogsToolTip" xml:space="preserve">
     <value>Import logs from file</value>
   </data>
@@ -382,8 +280,29 @@
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP Address</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Launguage" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="LaunguageToolTip" xml:space="preserve">
+    <value>UI Language</value>
+  </data>
   <data name="Level" xml:space="preserve">
     <value>Level</value>
+  </data>
+  <data name="ListOfReceivers" xml:space="preserve">
+    <value>List of Network Receivers</value>
+  </data>
+  <data name="LogCount" xml:space="preserve">
+    <value>Logs count</value>
+  </data>
+  <data name="Logger" xml:space="preserve">
+    <value>Logger</value>
   </data>
   <data name="Loggers" xml:space="preserve">
     <value>Loggers</value>
@@ -394,6 +313,9 @@
   <data name="LogsCount" xml:space="preserve">
     <value>Logs Count:</value>
   </data>
+  <data name="LogViewerFeatures" xml:space="preserve">
+    <value>Log Viewer features:</value>
+  </data>
   <data name="LogViewerSearchResult" xml:space="preserve">
     <value>LogViewer Search Result</value>
   </data>
@@ -403,8 +325,26 @@
   <data name="MatchLogLevel" xml:space="preserve">
     <value>Match Log Level (Only for 'Find All')</value>
   </data>
+  <data name="MaxMessageBufferSize" xml:space="preserve">
+    <value>Max message buffer size:</value>
+  </data>
+  <data name="MaxMessageBufferSizeToolTip" xml:space="preserve">
+    <value>Maximum count of log messages that can be stored in buffer</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="MessageDetails" xml:space="preserve">
+    <value>Message Details</value>
+  </data>
   <data name="MessageTemplateErrorSameParameters" xml:space="preserve">
     <value>The message template should not have the same parameters!</value>
+  </data>
+  <data name="MinimizeToTrayIcon" xml:space="preserve">
+    <value>Minimize to Tray Icon:</value>
+  </data>
+  <data name="MinimizeToTrayIconToolTip" xml:space="preserve">
+    <value>Shows a tray icon when LogViewer is minimized</value>
   </data>
   <data name="NoReceiversMessageBoxInfo" xml:space="preserve">
     <value>There are no network receivers.
@@ -418,6 +358,12 @@ Click "Settings" button to add new receivers.</value>
   </data>
   <data name="OnlyOneInstanceCanBeStartedMessageBoxText" xml:space="preserve">
     <value>Only one instance of Log Viewer can be started at one time!</value>
+  </data>
+  <data name="OnlyOneInstanceOfApp" xml:space="preserve">
+    <value>Only one instance of app:</value>
+  </data>
+  <data name="OnlyOneInstanceOfAppToolTip" xml:space="preserve">
+    <value>Only one instance of Log Viewer in system</value>
   </data>
   <data name="OrCreateYourOwnTemplate" xml:space="preserve">
     <value>Or create your own template</value>
@@ -440,11 +386,26 @@ Click "Settings" button to add new receivers.</value>
   <data name="PickTime" xml:space="preserve">
     <value>Pick Time</value>
   </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
   <data name="PortIsBusy" xml:space="preserve">
     <value>Port {0} is busy!</value>
   </data>
+  <data name="ReceiverName" xml:space="preserve">
+    <value>Receiver Name:</value>
+  </data>
+  <data name="Receivers" xml:space="preserve">
+    <value>Receivers</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
   <data name="RemoveTemplateItem" xml:space="preserve">
     <value>Remove Template Item</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="ScrollToFirstLogMessage" xml:space="preserve">
     <value>Scroll to First Log Message</value>
@@ -452,20 +413,38 @@ Click "Settings" button to add new receivers.</value>
   <data name="ScrollToLastLogMessage" xml:space="preserve">
     <value>Scroll to Last Log Message</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="SelectFromExistingTemplates" xml:space="preserve">
     <value>Select from existing templates</value>
   </data>
   <data name="SelectTimeInterval" xml:space="preserve">
     <value>Select Time Interval</value>
   </data>
+  <data name="SetDefault" xml:space="preserve">
+    <value>Set Default</value>
+  </data>
   <data name="SetTimeInterval" xml:space="preserve">
     <value>Set Time Interval</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="SettingsSaveErrorSamePortNumber" xml:space="preserve">
     <value>There are the same port numbers in the sources.</value>
   </data>
+  <data name="ShowSourceColumn" xml:space="preserve">
+    <value>Show data source column:</value>
+  </data>
+  <data name="ShowSourceColumnToolTip" xml:space="preserve">
+    <value>Show data source column in log table. Displays where this message came from (file or IP)</value>
+  </data>
   <data name="ShowOnlyThisLogger" xml:space="preserve">
     <value>Show Only this Logger</value>
+  </data>
+  <data name="SinevViktor" xml:space="preserve">
+    <value>Sinev Viktor</value>
   </data>
   <data name="small_remove" xml:space="preserve">
     <value>remove</value>
@@ -473,11 +452,32 @@ Click "Settings" button to add new receivers.</value>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Theme:</value>
+  </data>
+  <data name="ThemeFontColor" xml:space="preserve">
+    <value>Theme font color:</value>
+  </data>
+  <data name="ThemeFontColorToolTip" xml:space="preserve">
+    <value>Theme font color</value>
+  </data>
+  <data name="Thread" xml:space="preserve">
+    <value>Thread</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
   <data name="ToggleMarking" xml:space="preserve">
     <value>Toggle Marking</value>
   </data>
   <data name="ToggleMarkingToolTip" xml:space="preserve">
     <value>Mark the messages of this logger in a different color</value>
+  </data>
+  <data name="UDPPortNumber" xml:space="preserve">
+    <value>UDP Port Number:</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version: </value>
   </data>
   <data name="AutomaticDetectTemplate" xml:space="preserve">
     <value>Automatically</value>
@@ -489,14 +489,14 @@ Try selecting a template manually.</value>
   <data name="AutomaticDetectTemplateToolTip" xml:space="preserve">
     <value>Try to detect a template for parsing the log file automatically. 100% result is not guaranteed.</value>
   </data>
-  <data name="ClearSearchAndSearchResult" xml:space="preserve">
-    <value>Clear text and search result (Shift+R)</value>
-  </data>
   <data name="ShowThreadColumn" xml:space="preserve">
     <value>Show thread № column:</value>
   </data>
   <data name="ShowThreadColumnToolTip" xml:space="preserve">
     <value>Show thread number column in log table</value>
+  </data>
+  <data name="ClearSearchAndSearchResult" xml:space="preserve">
+    <value>Clear text and search result (Shift+R)</value>
   </data>
   <data name="File" xml:space="preserve">
     <value>File</value>
@@ -516,9 +516,6 @@ Try selecting a template manually.</value>
   <data name="ParseTemplateStringError" xml:space="preserve">
     <value>An error occurred while parse template string</value>
   </data>
-  <data name="FromLayoutString" xml:space="preserve">
-    <value>From layout string</value>
-  </data>
   <data name="CallsiteAndStacktraces" xml:space="preserve">
     <value>Callsite and Stacktraces</value>
   </data>
@@ -527,6 +524,9 @@ Try selecting a template manually.</value>
   </data>
   <data name="DateAndTime" xml:space="preserve">
     <value>Date and Time</value>
+  </data>
+  <data name="FromLayoutString" xml:space="preserve">
+    <value>From layout string</value>
   </data>
   <data name="Main" xml:space="preserve">
     <value>Main</value>
@@ -643,5 +643,11 @@ Restart application?</value>
   </data>
   <data name="SeparateIpLoggersByPortTooltip" xml:space="preserve">
     <value>Separate UDP loggers by ports</value>
+  </data>
+  <data name="ColumnsVisibility" xml:space="preserve">
+    <value>Columns Visibility</value>
+  </data>
+  <data name="ColumnsVisibilityToolTip" xml:space="preserve">
+    <value>visibility of all columns(seperated)</value>
   </data>
 </root>

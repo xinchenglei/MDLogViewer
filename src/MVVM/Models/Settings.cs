@@ -25,6 +25,11 @@ namespace LogViewer.MVVM.Models
         private static readonly Settings instance = new Settings();
         private string settingsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LogViewer", "settings.xml");
 
+
+        public bool IsShowColorColumn { get; set; }
+        public bool IsShowTimeColumn { get; set; }
+        public bool IsShowMessageColumn { get; set; }
+        public bool IsShowLevelColumn { get; set; }
         public bool AutoStartInStartup { get; set; } = false;
         public bool MinimizeToTray { get; set; } = false;
         public bool OnlyOneAppInstance { get; set; } = false;
@@ -46,7 +51,7 @@ namespace LogViewer.MVVM.Models
         /// Показывать ли колонку с источником 
         /// </summary>
         public bool IsShowSourceColumn { get; set; } = false;
-        
+
         /// <summary>
         /// Показывать ли колонку с номером потока
         /// </summary>
@@ -146,7 +151,7 @@ namespace LogViewer.MVVM.Models
                 settingsPath = $"{AppDomain.CurrentDomain.BaseDirectory}settings.xml";
                 settingsFileExists = true;
             }
-            
+
             if (settingsFileExists)
             {
                 try
@@ -167,6 +172,10 @@ namespace LogViewer.MVVM.Models
                         Instance.DeletedMessagesCount = settings.DeletedMessagesCount;
                         Instance.IsShowSourceColumn = settings.IsShowSourceColumn;
                         Instance.IsShowThreadColumn = settings.IsShowThreadColumn;
+                        Instance.IsShowTimeColumn = settings.IsShowTimeColumn;
+                        Instance.IsShowLevelColumn = settings.IsShowLevelColumn;
+                        Instance.IsShowColorColumn = settings.IsShowColorColumn;
+                        Instance.IsShowMessageColumn = settings.IsShowMessageColumn;
                         Instance.IsShowTaskbarProgress = settings.IsShowTaskbarProgress;
                         Instance.ShowMessageHighlightByReceiverColor = settings.ShowMessageHighlightByReceiverColor;
                         Instance.IsSeparateIpLoggersByPort = settings.IsSeparateIpLoggersByPort;

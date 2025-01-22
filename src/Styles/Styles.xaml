@@ -750,6 +750,9 @@
         </Setter>
     </Style>
 
+    
+    
+    
     <ContextMenu x:Key="ItemContextMenu" Style="{StaticResource BaseContextMenu}">
         <MenuItem Header="{localization:LocBinding DontShowThisLogger}"  Margin="0" Command="{Binding Path=DataContext.DontShowThisLoggerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}">
             <MenuItem.Icon>

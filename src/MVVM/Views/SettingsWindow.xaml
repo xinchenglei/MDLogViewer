@@ -1,245 +1,567 @@
-﻿<Window x:Class="LogViewer.MVVM.Views.SettingsWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LogViewer.MVVM"
-        xmlns:viewModels="clr-namespace:LogViewer.MVVM.ViewModels"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:validations="clr-namespace:LogViewer.Validations"
-        xmlns:dropDownCustomColorPicker="clr-namespace:DropDownCustomColorPicker;assembly=CustomColorPicker"
-        xmlns:localization="clr-namespace:LogViewer.Localization"
-        mc:Ignorable="d"
-        Title="{localization:LocBinding Settings}" Height="630" Width="600" MinHeight="505">
+﻿<Window
+    x:Class="LogViewer.MVVM.Views.SettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dropDownCustomColorPicker="clr-namespace:DropDownCustomColorPicker;assembly=CustomColorPicker"
+    xmlns:local="clr-namespace:LogViewer.MVVM"
+    xmlns:localization="clr-namespace:LogViewer.Localization"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:validations="clr-namespace:LogViewer.Validations"
+    xmlns:viewModels="clr-namespace:LogViewer.MVVM.ViewModels"
+    Title="{localization:LocBinding Settings}"
+    Width="600"
+    Height="630"
+    MinHeight="505"
+    mc:Ignorable="d">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../../Styles/Styles.xaml"/>
+                <ResourceDictionary Source="../../Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="{x:Type TextBlock}">
-                <Setter Property="ToolTip" Value="{x:Null}"/>
+                <Setter Property="ToolTip" Value="{x:Null}" />
             </Style>
         </ResourceDictionary>
     </Window.Resources>
 
     <Window.DataContext>
-        <viewModels:SettingsViewModel/>
+        <viewModels:SettingsViewModel />
     </Window.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <TabControl BorderThickness="0">
-            <TabItem Header="{localization:LocBinding General}" Height="25" Width="100">
-                <GroupBox FontSize="16" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                    <GroupBox.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{localization:LocBinding GeneralSettings}" FontSize="16" Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"/>
-                        </DataTemplate>
-                    </GroupBox.HeaderTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="265"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                        </Grid.RowDefinitions>
+            <TabItem
+                Width="100"
+                Height="25"
+                Header="{localization:LocBinding General}">
+                <ScrollViewer>
+                    <GroupBox
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                        FontSize="16"
+                        Style="{DynamicResource MaterialDesignGroupBox}">
+                        <GroupBox.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    Text="{localization:LocBinding GeneralSettings}" />
+                            </DataTemplate>
+                        </GroupBox.HeaderTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="265" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="35" />
+                                <RowDefinition Height="35" />
+                                <RowDefinition Height="35" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
 
-                        <TextBlock Text="{localization:LocBinding AutoStartReadingLogsAtStartup}" ToolTip="{localization:LocBinding AutoStartReadingLogsAtStartupToolTip}" VerticalAlignment="Center" />
-                        <ToggleButton Grid.Row="0" Grid.Column="1" IsChecked="{Binding Path=IsAutoStartReadAtStartup}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding AutoStartReadingLogsAtStartup}"
+                                ToolTip="{localization:LocBinding AutoStartReadingLogsAtStartupToolTip}" />
+                            <ToggleButton
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=IsAutoStartReadAtStartup}" />
 
-                        <TextBlock Text="{localization:LocBinding MinimizeToTrayIcon}" ToolTip="{localization:LocBinding MinimizeToTrayIconToolTip}" VerticalAlignment="Center"  Grid.Row="1"/>
-                        <ToggleButton Grid.Row="1" Grid.Column="1" IsChecked="{Binding Path=MinimizeToTray}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            <TextBlock
+                                Grid.Row="1"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding MinimizeToTrayIcon}"
+                                ToolTip="{localization:LocBinding MinimizeToTrayIconToolTip}" />
+                            <ToggleButton
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=MinimizeToTray}" />
 
-                        <TextBlock Text="{localization:LocBinding OnlyOneInstanceOfApp}" ToolTip="{localization:LocBinding OnlyOneInstanceOfAppToolTip}" VerticalAlignment="Center"  Grid.Row="2"/>
-                        <ToggleButton Grid.Row="2" Grid.Column="1" IsChecked="{Binding Path=OnlyOneAppInstance}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            <TextBlock
+                                Grid.Row="2"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding OnlyOneInstanceOfApp}"
+                                ToolTip="{localization:LocBinding OnlyOneInstanceOfAppToolTip}" />
+                            <ToggleButton
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=OnlyOneAppInstance}" />
 
-                        <TextBlock Text="{localization:LocBinding ShowSourceColumn}" ToolTip="{localization:LocBinding ShowSourceColumnToolTip}" VerticalAlignment="Center"  Grid.Row="3"/>
-                        <ToggleButton Grid.Row="3" Grid.Column="1" IsChecked="{Binding Path=IsShowSourceColumn}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            <TextBlock
+                                Grid.Row="3"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding ShowSourceColumn}"
+                                ToolTip="{localization:LocBinding ShowSourceColumnToolTip}" />
+                            <ToggleButton
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=IsShowSourceColumn}" />
 
-                        <TextBlock Text="{localization:LocBinding ShowThreadColumn}" ToolTip="{localization:LocBinding ShowThreadColumnToolTip}" VerticalAlignment="Center"  Grid.Row="4"/>
-                        <ToggleButton Grid.Row="4" Grid.Column="1" IsChecked="{Binding Path=IsShowThreadColumn}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            <TextBlock
+                                Grid.Row="4"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding ShowThreadColumn}"
+                                ToolTip="{localization:LocBinding ShowThreadColumnToolTip}" />
+                            <ToggleButton
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=IsShowThreadColumn}" />
 
-                        <TextBlock Text="{localization:LocBinding ShowProgressOnTaskbarIcon}" ToolTip="{localization:LocBinding ShowProgressOnTaskbarIconToolTip}" VerticalAlignment="Center"  Grid.Row="5"/>
-                        <ToggleButton Grid.Row="5" Grid.Column="1" IsChecked="{Binding Path=IsShowTaskbarProgress}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            <TextBlock
+                                Grid.Row="5"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding ShowProgressOnTaskbarIcon}"
+                                ToolTip="{localization:LocBinding ShowProgressOnTaskbarIconToolTip}" />
+                            <ToggleButton
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=IsShowTaskbarProgress}" />
 
-                        <TextBlock Grid.Row="6" Text="{localization:LocBinding MaxMessageBufferSize}" VerticalAlignment="Center" ToolTip="{localization:LocBinding MaxMessageBufferSizeToolTip}"/>
-                        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
-                            <ToggleButton IsChecked="{Binding Path=IsEnableMaxMessageBufferSize}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                            <TextBox Width="100" Margin="10,0,10,0" HorizontalContentAlignment="Left" Text="{Binding Path=MaxMessageBufferSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsEnableMaxMessageBufferSize}"/>
-                        </StackPanel>
+                            <TextBlock
+                                Grid.Row="6"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding MaxMessageBufferSize}"
+                                ToolTip="{localization:LocBinding MaxMessageBufferSizeToolTip}" />
+                            <StackPanel
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Orientation="Horizontal">
+                                <ToggleButton
+                                    Margin="0,5,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    IsChecked="{Binding Path=IsEnableMaxMessageBufferSize}" />
+                                <TextBox
+                                    Width="100"
+                                    Margin="10,0,10,0"
+                                    HorizontalContentAlignment="Left"
+                                    IsEnabled="{Binding Path=IsEnableMaxMessageBufferSize}"
+                                    Text="{Binding Path=MaxMessageBufferSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
 
-                        <TextBlock Grid.Row="7" Text="{localization:LocBinding CountOfDeletedMessages}" VerticalAlignment="Center" ToolTip="{localization:LocBinding CountOfDeletedMessagesToolTip}" IsEnabled="{Binding Path=IsEnableMaxMessageBufferSize}"/>
-                        <TextBox Grid.Row="7" Grid.Column="1" Width="100"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Text="{Binding Path=DeletedMessagesCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Path=IsEnableMaxMessageBufferSize}"/>
+                            <TextBlock
+                                Grid.Row="7"
+                                VerticalAlignment="Center"
+                                IsEnabled="{Binding Path=IsEnableMaxMessageBufferSize}"
+                                Text="{localization:LocBinding CountOfDeletedMessages}"
+                                ToolTip="{localization:LocBinding CountOfDeletedMessagesToolTip}" />
+                            <TextBox
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                Width="100"
+                                HorizontalAlignment="Left"
+                                HorizontalContentAlignment="Left"
+                                IsEnabled="{Binding Path=IsEnableMaxMessageBufferSize}"
+                                Text="{Binding Path=DeletedMessagesCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <TextBlock Grid.Row="8" Text="{localization:LocBinding Launguage}" ToolTip="{localization:LocBinding LaunguageToolTip}" VerticalAlignment="Center"/>
-                        <ComboBox Grid.Row="8" Grid.Column="1" ItemsSource="{Binding Path=Languages}" SelectedValue="{Binding Path=SelectedLanguage}" Width="210" HorizontalAlignment="Left" SelectedValuePath="Key" DisplayMemberPath="Value"/>
+                            <TextBlock
+                                Grid.Row="8"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding Launguage}"
+                                ToolTip="{localization:LocBinding LaunguageToolTip}" />
+                            <ComboBox
+                                Grid.Row="8"
+                                Grid.Column="1"
+                                Width="210"
+                                HorizontalAlignment="Left"
+                                DisplayMemberPath="Value"
+                                ItemsSource="{Binding Path=Languages}"
+                                SelectedValue="{Binding Path=SelectedLanguage}"
+                                SelectedValuePath="Key" />
 
-                        <TextBlock Grid.Row="9" Text="{localization:LocBinding DisplayedDataFormat}" ToolTip="{localization:LocBinding DisplayedDataFormatToolTip}" VerticalAlignment="Center"/>
-                        <ComboBox Grid.Row="9" Grid.Column="1" ItemsSource="{Binding Path=DataFormats}" SelectedItem="{Binding Path=SelectedDataFormat}" Width="210" HorizontalAlignment="Left" ToolTip="{Binding Path=ExampleDateTime}"/>
+                            <TextBlock
+                                Grid.Row="9"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding DisplayedDataFormat}"
+                                ToolTip="{localization:LocBinding DisplayedDataFormatToolTip}" />
+                            <ComboBox
+                                Grid.Row="9"
+                                Grid.Column="1"
+                                Width="210"
+                                HorizontalAlignment="Left"
+                                ItemsSource="{Binding Path=DataFormats}"
+                                SelectedItem="{Binding Path=SelectedDataFormat}"
+                                ToolTip="{Binding Path=ExampleDateTime}" />
 
-                        <TextBlock Grid.Row="10" Text="{localization:LocBinding Theme}" ToolTip="{localization:LocBinding ApplicationTheme}" VerticalAlignment="Center"/>
-                        <ComboBox Grid.Row="10" Grid.Column="1" ItemsSource="{Binding Path=Themes}" SelectedItem="{Binding Path=SelectedTheme}" Width="210" HorizontalAlignment="Left">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" Background="{Binding Color}" Height="25" Foreground="White" Padding="10,0,10,0" Margin="0,-5"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                            <TextBlock
+                                Grid.Row="10"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding Theme}"
+                                ToolTip="{localization:LocBinding ApplicationTheme}" />
+                            <ComboBox
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                Width="210"
+                                HorizontalAlignment="Left"
+                                ItemsSource="{Binding Path=Themes}"
+                                SelectedItem="{Binding Path=SelectedTheme}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            Height="25"
+                                            Margin="0,-5"
+                                            Padding="10,0,10,0"
+                                            Background="{Binding Color}"
+                                            Foreground="White"
+                                            Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
 
-                        <TextBlock Grid.Row="11" Text="{localization:LocBinding ThemeFontColor}" ToolTip="{localization:LocBinding ThemeFontColorToolTip}" VerticalAlignment="Center" Margin="0,10"/>
-                        <StackPanel Orientation="Horizontal" Grid.Row="11" Grid.Column="1">
-                            <dropDownCustomColorPicker:CustomColorPicker Width="50" Margin="0,5,0,0" VerticalAlignment="Center" SelectedColor="{Binding Path=SelectedFontColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <Button Style="{StaticResource SetDefaultButtonStyle}" Command="{Binding Path=SetDefaultColorCommand}" CommandParameter="Font"/>
-                        </StackPanel>
+                            <TextBlock
+                                Grid.Row="11"
+                                Margin="0,10"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding ThemeFontColor}"
+                                ToolTip="{localization:LocBinding ThemeFontColorToolTip}" />
+                            <StackPanel
+                                Grid.Row="11"
+                                Grid.Column="1"
+                                Orientation="Horizontal">
+                                <dropDownCustomColorPicker:CustomColorPicker
+                                    Width="50"
+                                    Margin="0,5,0,0"
+                                    VerticalAlignment="Center"
+                                    SelectedColor="{Binding Path=SelectedFontColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                <Button
+                                    Command="{Binding Path=SetDefaultColorCommand}"
+                                    CommandParameter="Font"
+                                    Style="{StaticResource SetDefaultButtonStyle}" />
+                            </StackPanel>
 
-                        <TextBlock Text="{localization:LocBinding MessageHighlightByReceiverColor}" ToolTip="{localization:LocBinding MessageHighlightByReceiverColorTooltip}" VerticalAlignment="Center"  Grid.Row="12"/>
-                        <ToggleButton Grid.Row="12" Grid.Column="1" IsChecked="{Binding Path=ShowMessageHighlightByReceiverColor}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            <TextBlock
+                                Grid.Row="12"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding MessageHighlightByReceiverColor}"
+                                ToolTip="{localization:LocBinding MessageHighlightByReceiverColorTooltip}" />
+                            <ToggleButton
+                                Grid.Row="12"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=ShowMessageHighlightByReceiverColor}" />
 
-                        <TextBlock Text="{localization:LocBinding SeparateIpLoggersByPort}" ToolTip="{localization:LocBinding SeparateIpLoggersByPortTooltip}" VerticalAlignment="Center"  Grid.Row="13"/>
-                        <ToggleButton Grid.Row="13" Grid.Column="1" IsChecked="{Binding Path=IsSeparateIpLoggersByPort}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                    </Grid>
-                </GroupBox>
+                            <TextBlock
+                                Grid.Row="13"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding SeparateIpLoggersByPort}"
+                                ToolTip="{localization:LocBinding SeparateIpLoggersByPortTooltip}" />
+                            <ToggleButton
+                                Grid.Row="13"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding Path=IsSeparateIpLoggersByPort}" />
+
+                            <TextBlock
+                                Grid.Row="14"
+                                VerticalAlignment="Center"
+                                Text="{localization:LocBinding ColumnsVisibility}"
+                                ToolTip="{localization:LocBinding ColumnsVisibilityTooltip}" />
+
+                            <WrapPanel Grid.Row="14" Grid.Column="1">
+
+                                <CheckBox
+                                    VerticalContentAlignment="Center"
+                                    Content="Color"
+                                    IsChecked="{Binding IsShowColorColumn}"
+                                    Style="{StaticResource MaterialDesignCheckBox}" />
+
+                                <CheckBox
+                                    VerticalContentAlignment="Center"
+                                    Content="Level"
+                                    IsChecked="{Binding IsShowLevelColumn}"
+                                    Style="{StaticResource MaterialDesignCheckBox}" />
+
+                                <CheckBox
+                                    VerticalContentAlignment="Center"
+                                    Content="Time"
+                                    IsChecked="{Binding IsShowTimeColumn}"
+                                    Style="{StaticResource MaterialDesignCheckBox}" />
+
+
+                                <CheckBox
+                                    VerticalContentAlignment="Center"
+                                    Content="Message"
+                                    IsChecked="{Binding IsShowMessageColumn}"
+                                    Style="{StaticResource MaterialDesignCheckBox}" />
+
+                            </WrapPanel>
+                        </Grid>
+                    </GroupBox>
+                </ScrollViewer>
             </TabItem>
-            <TabItem Header="{localization:LocBinding Receivers}" Height="25" Width="100">
-                <GroupBox FontSize="16" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <TabItem
+                Width="100"
+                Height="25"
+                Header="{localization:LocBinding Receivers}">
+                <GroupBox
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    FontSize="16"
+                    Style="{DynamicResource MaterialDesignGroupBox}">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{localization:LocBinding ListOfReceivers}" FontSize="16" Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"
+                                Text="{localization:LocBinding ListOfReceivers}" />
                         </DataTemplate>
                     </GroupBox.HeaderTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="45"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="45" />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="220"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="220" />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.RowSpan="2"/>
-                        <Button Foreground="{Binding Path=FontColor}" Width="100" HorizontalAlignment="Left" Content="{localization:LocBinding Add}" Margin="5" Command="{Binding Path=AddReceiverCommand}"/>
-                        <Button Foreground="{Binding Path=FontColor}" x:Name="RemoveButton" Width="100" HorizontalAlignment="Right" Content="{localization:LocBinding Remove}" Margin="5" Command="{Binding Path=RemoveReceiverCommand}" 
-                                Style="{StaticResource RemoveButtonStyle}"/>
+                        <Border Grid.RowSpan="2" />
+                        <Button
+                            Width="100"
+                            Margin="5"
+                            HorizontalAlignment="Left"
+                            Command="{Binding Path=AddReceiverCommand}"
+                            Content="{localization:LocBinding Add}"
+                            Foreground="{Binding Path=FontColor}" />
+                        <Button
+                            x:Name="RemoveButton"
+                            Width="100"
+                            Margin="5"
+                            HorizontalAlignment="Right"
+                            Command="{Binding Path=RemoveReceiverCommand}"
+                            Content="{localization:LocBinding Remove}"
+                            Foreground="{Binding Path=FontColor}"
+                            Style="{StaticResource RemoveButtonStyle}" />
 
-                        <ListBox HorizontalContentAlignment="Stretch" Grid.Row="1" Grid.Column="0" Margin="5" ItemsSource="{Binding Path=Receivers}" SelectedItem="{Binding Path=SelectedReceiver}" x:Name="ReceiversList">
+                        <ListBox
+                            x:Name="ReceiversList"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="5"
+                            HorizontalContentAlignment="Stretch"
+                            ItemsSource="{Binding Path=Receivers}"
+                            SelectedItem="{Binding Path=SelectedReceiver}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid x:Name="ListItemGrid">
-                                        <TextBlock Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
-                                        <CheckBox IsChecked="{Binding Path=IsActive, Mode=TwoWay}" ToolTip="{localization:LocBinding IsActive}" HorizontalAlignment="Right"/>
+                                        <TextBlock Width="Auto" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <CheckBox
+                                            HorizontalAlignment="Right"
+                                            IsChecked="{Binding Path=IsActive, Mode=TwoWay}"
+                                            ToolTip="{localization:LocBinding IsActive}" />
                                     </Grid>
                                     <DataTemplate.Triggers>
                                         <DataTrigger Binding="{Binding Path=IsActive}" Value="False">
-                                            <Setter Property="ListBoxItem.Opacity" Value="0.5"/>
+                                            <Setter Property="ListBoxItem.Opacity" Value="0.5" />
                                         </DataTrigger>
                                     </DataTemplate.Triggers>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
 
-                        <Border Grid.Column="1" Grid.RowSpan="2" Margin="5,0,0,0"/>
+                        <Border
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Margin="5,0,0,0" />
 
-                        <StackPanel Orientation="Vertical" Grid.RowSpan="2" Grid.Column="1" Margin="10,5,10,5" Visibility="{Binding Path=IsConfigurationVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-                            <TextBlock Text="" FontWeight="Bold"/>
+                        <StackPanel
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Margin="10,5,10,5"
+                            Orientation="Vertical"
+                            Visibility="{Binding Path=IsConfigurationVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <TextBlock FontWeight="Bold" Text="" />
                             <Grid Margin="0,5,0,0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="{localization:LocBinding ReceiverName}" VerticalAlignment="Center" FontSize="14"/>
-                                <TextBox Grid.Column="1" Text="{Binding Path=SelectedReceiver.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBlock Grid.Row="1" Text="{localization:LocBinding UDPPortNumber}" VerticalAlignment="Center" FontSize="14"/>
-                                <TextBox  Grid.Row="1" Grid.Column="1" >
+                                <TextBlock
+                                    Grid.Row="0"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Text="{localization:LocBinding ReceiverName}" />
+                                <TextBox Grid.Column="1" Text="{Binding Path=SelectedReceiver.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Text="{localization:LocBinding UDPPortNumber}" />
+                                <TextBox Grid.Row="1" Grid.Column="1">
                                     <TextBox.Text>
-                                        <Binding Path="SelectedReceiver.Port" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding
+                                            Mode="TwoWay"
+                                            Path="SelectedReceiver.Port"
+                                            UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
-                                                <local:PortNumberValidation ValidatesOnTargetUpdated="True"/>
+                                                <local:PortNumberValidation ValidatesOnTargetUpdated="True" />
                                             </Binding.ValidationRules>
                                         </Binding>
                                     </TextBox.Text>
                                 </TextBox>
 
-                                <TextBlock Grid.Row="2" Text="{localization:LocBinding Color}" VerticalAlignment="Center" Margin="0,0"/>
-                                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                                    <dropDownCustomColorPicker:CustomColorPicker Width="50" Margin="0,20" SelectedColor="{Binding Path=SelectedReceiver.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <Button Style="{StaticResource SetDefaultButtonStyle}" Command="{Binding Path=SetDefaultColorCommand}" CommandParameter="Receiver"/>
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Margin="0,0"
+                                    VerticalAlignment="Center"
+                                    Text="{localization:LocBinding Color}" />
+                                <StackPanel
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Orientation="Horizontal">
+                                    <dropDownCustomColorPicker:CustomColorPicker
+                                        Width="50"
+                                        Margin="0,20"
+                                        SelectedColor="{Binding Path=SelectedReceiver.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button
+                                        Command="{Binding Path=SetDefaultColorCommand}"
+                                        CommandParameter="Receiver"
+                                        Style="{StaticResource SetDefaultButtonStyle}" />
                                 </StackPanel>
 
-                                <TextBlock Grid.Row="3" Grid.Column="0" Text="{localization:LocBinding Encoding}" VerticalAlignment="Center" Margin="0,-10,0,10"/>
-                                <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding EncodingList}" SelectedItem="{Binding SelectedReceiver.Encoding}" Margin="0,-10,0,10"/>
+                                <TextBlock
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Margin="0,-10,0,10"
+                                    VerticalAlignment="Center"
+                                    Text="{localization:LocBinding Encoding}" />
+                                <ComboBox
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Margin="0,-10,0,10"
+                                    ItemsSource="{Binding EncodingList}"
+                                    SelectedItem="{Binding SelectedReceiver.Encoding}" />
                             </Grid>
                         </StackPanel>
                     </Grid>
                 </GroupBox>
             </TabItem>
-            <TabItem Header="{localization:LocBinding IgnoredList}" Height="25" Width="100">
-                <GroupBox Style="{DynamicResource MaterialDesignGroupBox}" FontSize="16" materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <TabItem
+                Width="100"
+                Height="25"
+                Header="{localization:LocBinding IgnoredList}">
+                <GroupBox
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    FontSize="16"
+                    Style="{DynamicResource MaterialDesignGroupBox}">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{localization:LocBinding IgnoredIPAddresses}" FontSize="16" Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"
+                                Text="{localization:LocBinding IgnoredIPAddresses}" />
                         </DataTemplate>
                     </GroupBox.HeaderTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="45"/>
-                            <RowDefinition Height="45"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="45" />
+                            <RowDefinition Height="45" />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <Button Grid.Row="0" Foreground="{Binding Path=FontColor}" Style="{StaticResource AddIgnoreIpButtonStyle}"/>
-                        <Button Grid.Row="0" Foreground="{Binding Path=FontColor}" Style="{StaticResource RemoveIgnoreIpButtonStyle}"/>
+                        <Button
+                            Grid.Row="0"
+                            Foreground="{Binding Path=FontColor}"
+                            Style="{StaticResource AddIgnoreIpButtonStyle}" />
+                        <Button
+                            Grid.Row="0"
+                            Foreground="{Binding Path=FontColor}"
+                            Style="{StaticResource RemoveIgnoreIpButtonStyle}" />
 
-                        <TextBox Grid.Row="1" Style="{StaticResource IPTextBoxStyle}" materialDesign:HintAssist.Hint="{localization:LocBinding IPAddress}" x:Name="IPAddress">
+                        <TextBox
+                            x:Name="IPAddress"
+                            Grid.Row="1"
+                            materialDesign:HintAssist.Hint="{localization:LocBinding IPAddress}"
+                            Style="{StaticResource IPTextBoxStyle}">
                             <TextBox.Text>
-                                <Binding NotifyOnValidationError="True" Path="TypedIP" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding
+                                    Mode="TwoWay"
+                                    NotifyOnValidationError="True"
+                                    Path="TypedIP"
+                                    UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
-                                        <validations:IPValidation ValidatesOnTargetUpdated="True"/>
+                                        <validations:IPValidation ValidatesOnTargetUpdated="True" />
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Border Grid.RowSpan="3"/>
+                        <Border Grid.RowSpan="3" />
 
-                        <ListBox Grid.Row="2" Grid.Column="0" Margin="5,20,5,5" ItemsSource="{Binding Path=IgnoredIpAdresses}" SelectedItem="{Binding Path=SelectedIP}">
+                        <ListBox
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="5,20,5,5"
+                            ItemsSource="{Binding Path=IgnoredIpAdresses}"
+                            SelectedItem="{Binding Path=SelectedIP}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid x:Name="ListItemGrid">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="115"/>
-                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="115" />
+                                            <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" Text="{Binding Path=IP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
-                                        <CheckBox VerticalAlignment="Bottom" Grid.Column="1" IsChecked="{Binding Path=IsActive, Mode=TwoWay}" ToolTip="{localization:LocBinding IsActive}" HorizontalAlignment="Right"/>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            Width="Auto"
+                                            Text="{Binding Path=IP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <CheckBox
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Bottom"
+                                            IsChecked="{Binding Path=IsActive, Mode=TwoWay}"
+                                            ToolTip="{localization:LocBinding IsActive}" />
                                     </Grid>
                                     <DataTemplate.Triggers>
                                         <DataTrigger Binding="{Binding Path=IsActive}" Value="False">
-                                            <Setter Property="ListBoxItem.Opacity" Value="0.5"/>
+                                            <Setter Property="ListBoxItem.Opacity" Value="0.5" />
                                         </DataTrigger>
                                     </DataTemplate.Triggers>
                                 </DataTemplate>
@@ -248,30 +570,42 @@
                     </Grid>
                 </GroupBox>
             </TabItem>
-            <TabItem Header="{localization:LocBinding About}" Width="100" Height="25">
-                <GroupBox Style="{DynamicResource MaterialDesignGroupBox}" FontSize="16" materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <TabItem
+                Width="100"
+                Height="25"
+                Header="{localization:LocBinding About}">
+                <GroupBox
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    FontSize="16"
+                    Style="{DynamicResource MaterialDesignGroupBox}">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{localization:LocBinding About}" FontSize="16" Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="{Binding DataContext.FontColor, RelativeSource={RelativeSource AncestorType=Window}}"
+                                Text="{localization:LocBinding About}" />
                         </DataTemplate>
                     </GroupBox.HeaderTemplate>
 
                     <StackPanel Orientation="Vertical">
-                        <TextBlock HorizontalAlignment="Center" Text="Log Viewer"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Log Viewer" />
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{localization:LocBinding Version}" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Path=Version}"/>
+                            <TextBlock FontWeight="Bold" Text="{localization:LocBinding Version}" />
+                            <TextBlock Text="{Binding Path=Version}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center" Text="{localization:LocBinding Author}" FontWeight="Bold"/>
-                            <TextBlock VerticalAlignment="Center" Text="{localization:LocBinding SinevViktor}"/>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontWeight="Bold"
+                                Text="{localization:LocBinding Author}" />
+                            <TextBlock VerticalAlignment="Center" Text="{localization:LocBinding SinevViktor}" />
                             <materialDesign:Chip
-                                ToolTip="https://github.com/Styort"
                                 Margin="10,0,10,0"
                                 IconBackground="{DynamicResource PrimaryHueDarkBrush}"
-                                IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}">
-                                <Hyperlink NavigateUri="https://github.com/Styort" Click="Hyperlink_OnClick">
-                                    <TextBlock Text="GitHub"/>
+                                IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                ToolTip="https://github.com/Styort">
+                                <Hyperlink Click="Hyperlink_OnClick" NavigateUri="https://github.com/Styort">
+                                    <TextBlock Text="GitHub" />
                                 </Hyperlink>
                                 <materialDesign:Chip.Icon>
                                     <materialDesign:PackIcon Kind="Github" />
@@ -279,34 +613,67 @@
                             </materialDesign:Chip>
 
                             <materialDesign:Chip
-                                ToolTip="https://stackoverflow.com/users/6551141/%D0%92%D0%B8%D1%82%D1%91%D0%BA-%D0%A1%D0%B8%D0%BD%D1%91%D0%B2"
                                 IconBackground="{DynamicResource PrimaryHueDarkBrush}"
                                 IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
->
-                                <Hyperlink NavigateUri="https://stackoverflow.com/users/6551141/%D0%92%D0%B8%D1%82%D1%91%D0%BA-%D0%A1%D0%B8%D0%BD%D1%91%D0%B2" Click="Hyperlink_OnClick">
-                                    <TextBlock Text="Stack Overflow"/>
+                                ToolTip="https://stackoverflow.com/users/6551141/%D0%92%D0%B8%D1%82%D1%91%D0%BA-%D0%A1%D0%B8%D0%BD%D1%91%D0%B2">
+                                <Hyperlink Click="Hyperlink_OnClick" NavigateUri="https://stackoverflow.com/users/6551141/%D0%92%D0%B8%D1%82%D1%91%D0%BA-%D0%A1%D0%B8%D0%BD%D1%91%D0%B2">
+                                    <TextBlock Text="Stack Overflow" />
                                 </Hyperlink>
                                 <materialDesign:Chip.Icon>
                                     <materialDesign:PackIcon Kind="StackOverflow" />
                                 </materialDesign:Chip.Icon>
                             </materialDesign:Chip>
                         </StackPanel>
-                        <TextBlock Text="{localization:LocBinding LogViewerFeatures}"/>
-                        <Border BorderThickness="1" Height="100" Margin="0,5" Padding="5">
+                        <TextBlock Text="{localization:LocBinding LogViewerFeatures}" />
+                        <Border
+                            Height="100"
+                            Margin="0,5"
+                            Padding="5"
+                            BorderThickness="1">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{localization:LocBinding FeaturesStr1}"/>
-                                <TextBlock Text="{localization:LocBinding FeaturesStr2}"/>
-                                <TextBlock Text="{localization:LocBinding FeaturesStr3}"/>
-                                <TextBlock Text="{localization:LocBinding FeaturesStr4}"/>
+                                <TextBlock Text="{localization:LocBinding FeaturesStr1}" />
+                                <TextBlock Text="{localization:LocBinding FeaturesStr2}" />
+                                <TextBlock Text="{localization:LocBinding FeaturesStr3}" />
+                                <TextBlock Text="{localization:LocBinding FeaturesStr4}" />
                             </StackPanel>
                         </Border>
-                        <Button Content="{localization:LocBinding ShowReleaseNotes}" Command="{Binding Path=ShowReleaseNotesCommand}" Height="35" Width="200"/>
+                        <Button
+                            Width="200"
+                            Height="35"
+                            Command="{Binding Path=ShowReleaseNotesCommand}"
+                            Content="{localization:LocBinding ShowReleaseNotes}" />
                     </StackPanel>
                 </GroupBox>
             </TabItem>
         </TabControl>
-        <Button Grid.Row="1" Grid.Column="0" Foreground="{Binding Path=FontColor}" Width="200" HorizontalAlignment="Left" Margin="5,0,120,0" Content="{localization:LocBinding CheckForUpdates}" Command="{Binding Path=CheckUpdatesCommand}" />
-        <Button Grid.Row="1" Grid.ColumnSpan="2" Foreground="{Binding Path=FontColor}" Width="105" HorizontalAlignment="Right" Margin="0,0,120,0" Content="{localization:LocBinding Save}" Command="{Binding Path=SaveCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
-        <Button Grid.Row="1" Grid.ColumnSpan="2" Foreground="{Binding Path=FontColor}" Width="105" HorizontalAlignment="Right" Margin="120,0,5,0" Content="{localization:LocBinding Cancel}" Command="{Binding Path=CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Width="200"
+            Margin="5,0,120,0"
+            HorizontalAlignment="Left"
+            Command="{Binding Path=CheckUpdatesCommand}"
+            Content="{localization:LocBinding CheckForUpdates}"
+            Foreground="{Binding Path=FontColor}" />
+        <Button
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Width="105"
+            Margin="0,0,120,0"
+            HorizontalAlignment="Right"
+            Command="{Binding Path=SaveCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+            Content="{localization:LocBinding Save}"
+            Foreground="{Binding Path=FontColor}" />
+        <Button
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Width="105"
+            Margin="120,0,5,0"
+            HorizontalAlignment="Right"
+            Command="{Binding Path=CancelCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+            Content="{localization:LocBinding Cancel}"
+            Foreground="{Binding Path=FontColor}" />
     </Grid>
 </Window>

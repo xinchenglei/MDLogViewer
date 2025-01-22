@@ -73,7 +73,7 @@ namespace LogViewer.MVVM.Views
             var args = Environment.GetCommandLineArgs().Where(x => x.EndsWith(".txt") || x.EndsWith(".log")).ToList();
             if (args.Any())
             {
-                ((LogViewModel)DataContext).ImportLogs(args.Where(x=>x.EndsWith(".txt") || x.EndsWith(".log")));
+                ((LogViewModel)DataContext).ImportLogs(args.Where(x => x.EndsWith(".txt") || x.EndsWith(".log")));
                 return;
             }
 
@@ -113,7 +113,6 @@ namespace LogViewer.MVVM.Views
                 }
                 this.Hide();
             }
-
             base.OnStateChanged(e);
         }
 
@@ -402,6 +401,45 @@ namespace LogViewer.MVVM.Views
         public void Dispose()
         {
             trayIcon?.Dispose();
+        }
+
+        private void DockPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                if (WindowState == WindowState.Maximized)
+                {
+                    // 将窗口还原到 Normal 状态
+                    WindowState = WindowState.Normal;
+
+                    // 计算鼠标位置并调整窗口位置
+                    var mousePosition = PointToScreen(e.GetPosition(this));
+                    Left = mousePosition.X - (Width / 2);
+                    Top = mousePosition.Y - (40 / 2); // 自定义标题栏的高度
+                }
+
+                DragMove();
+            }
+        }
+
+        private void OnPinBtnClicked(object sender, RoutedEventArgs e)
+        {
+            Topmost = !Topmost;
+        }
+
+        private void OnWindowMinimizeBtnClicked(object sender, RoutedEventArgs e)
+        {
+            WindowState= WindowState.Minimized;
+        }
+
+        private void OnWindowMaximizeBtnClicked(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
+
+        private void OnWindowCloseBtnClicked(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

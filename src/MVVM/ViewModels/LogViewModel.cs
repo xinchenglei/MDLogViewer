@@ -59,6 +59,7 @@ namespace LogViewer.MVVM.ViewModels
         private AsyncObservableCollection<LogMessage> logs = new AsyncObservableCollection<LogMessage>();
         private CancellationTokenSource cancellationToken;
         private bool startIsEnabled = true;
+        private bool pauseIsEnabled = false;
         private bool startReadFromFileIsEnabled = true;
         private bool cleanIsEnabled = false;
         private bool clearSearchResultIsEnabled = false;
@@ -85,6 +86,12 @@ namespace LogViewer.MVVM.ViewModels
         private SolidColorBrush fontColor = new SolidColorBrush(Colors.White);
         private bool isSourceVisible = false;
         private bool isThreadVisible = true;
+
+        private bool isColorVisible = true;
+        private bool isTimeVisible = true;
+        private bool isLevelVisible = true;
+        private bool isMessageVisible = true;
+
         private bool isEnableClearSearchLoggers;
         private string searchLoggerText = string.Empty;
         private DateTime goToTimestampDateTime;
@@ -155,6 +162,17 @@ namespace LogViewer.MVVM.ViewModels
             {
                 startIsEnabled = value;
                 IsShowTaskbarProgress = !startIsEnabled || !startReadFromFileIsEnabled;
+                OnPropertyChanged();
+            }
+        }
+
+
+        public bool PauseIsEnabled
+        {
+            get => pauseIsEnabled;
+            set
+            {
+                pauseIsEnabled = value;
                 OnPropertyChanged();
             }
         }
@@ -521,6 +539,58 @@ namespace LogViewer.MVVM.ViewModels
             }
         }
 
+
+
+
+
+
+        public bool IsColorVisible
+        {
+            get => isColorVisible;
+            set
+            {
+                isColorVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsTimeVisible
+        {
+            get => isTimeVisible;
+            set
+            {
+                isTimeVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+
+
+
+        public bool IsLevelVisible
+        {
+            get => isLevelVisible;
+            set
+            {
+                isLevelVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        public bool IsMessageVisible
+        {
+            get => isMessageVisible;
+            set
+            {
+                isMessageVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         /// <summary>
         /// Ширина колонки с IP
         /// </summary>
@@ -625,7 +695,10 @@ namespace LogViewer.MVVM.ViewModels
             deletedMessagesCount = Settings.Instance.DeletedMessagesCount;
             IsSourceVisible = Settings.Instance.IsShowSourceColumn;
             IsThreadVisible = Settings.Instance.IsShowThreadColumn;
-
+            IsColorVisible = Settings.Instance.IsShowColorColumn;
+            IsTimeVisible = Settings.Instance.IsShowTimeColumn;
+            IsLevelVisible = Settings.Instance.IsShowLevelColumn;
+            IsMessageVisible = Settings.Instance.IsShowMessageColumn;
             receivers = Settings.Instance.Receivers;
 
             Loggers.Add(new Node
@@ -742,6 +815,7 @@ namespace LogViewer.MVVM.ViewModels
                         return;
 
                     StartIsEnabled = false;
+                    PauseIsEnabled = true;
 
                     Parallel.ForEach(parsers, parser =>
                     {
@@ -768,6 +842,8 @@ namespace LogViewer.MVVM.ViewModels
                     udpPacketsParser.Dispose();
             }
             StartIsEnabled = true;
+            PauseIsEnabled = false;
+
         }
 
         /// <summary>
@@ -2120,6 +2196,9 @@ namespace LogViewer.MVVM.ViewModels
             FindLastNodesAndUpdateVisibility(Loggers[0], true);
             exceptParents.ForEach(x => x.IsVisible = true);
         }
+
+
+
 
         #endregion
 

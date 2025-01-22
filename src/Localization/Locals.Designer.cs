@@ -287,6 +287,24 @@ namespace LogViewer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Видимость столбца.
+        /// </summary>
+        internal static string ColumnsVisibility {
+            get {
+                return ResourceManager.GetString("ColumnsVisibility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Индивидуальные элементы управления видимостью столбцов.
+        /// </summary>
+        internal static string ColumnsVisibilityToolTip {
+            get {
+                return ResourceManager.GetString("ColumnsVisibilityToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Конфигурация.
         /// </summary>
         internal static string Configuration {
