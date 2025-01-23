@@ -3,7 +3,7 @@
 LogViewer is a high performance realtime log viewer via UDP (Chainsaw/NLogViewer) or text file.
 
 # Modified
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/8-modified-main-window.png?raw=true) 
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/8-modified-main-window.png?raw=true) 
  * 1.修改了窗口控制按钮的行为，关闭窗口需要在任务栏处完成  the action of window control btn has been change ,if you want to close the window go to the taskbar icon tray. 
  * 2.调整了窗口大小 adjust the MainWindow Size
  * 3.折叠了Logger查看界面展开按钮 Logger TreeView Expand Button
@@ -41,18 +41,18 @@ Overall downloads on sourceforge: <a href="https://sourceforge.net/projects/styo
  
 ## Screenshots
 Main window <br>
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/1-main.png?raw=true) 
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/1-main.png?raw=true) 
 
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/4-main-searching.png?raw=true)
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/4-main-searching.png?raw=true)
 
 Dialogs <br>
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/2-log-dialog.png?raw=true)
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/2-log-dialog.png?raw=true)
 
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/3-logger-dialog.png?raw=true)
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/3-logger-dialog.png?raw=true)
 
 Settings <br>
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/5-settings-main.png?raw=true) 
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/5-settings-main.png?raw=true) 
 
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/6-settings-receivers.png?raw=true)
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/6-settings-receivers.png?raw=true)
 
-![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/7-settings-ignored-ips.png?raw=true)
+![Loading...](https://github.com/xinchenglei/MDLogViewer/blob/master/docs/7-settings-ignored-ips.png?raw=true)
