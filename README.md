@@ -2,6 +2,14 @@
 
 LogViewer is a high performance realtime log viewer via UDP (Chainsaw/NLogViewer) or text file.
 
+# Modified
+![Loading...](https://github.com/Styort/LogViewer/blob/master/docs/8-modified-main-window.png?raw=true) 
+ * 1.修改了窗口控制按钮的行为，关闭窗口需要在任务栏处完成  the action of window control btn has been change ,if you want to close the window go to the taskbar icon tray. 
+ * 2.调整了窗口大小 adjust the MainWindow Size
+ * 3.折叠了Logger查看界面展开按钮 Logger TreeView Expand Button
+ * 4.Pin 按钮，不聚焦的Toggle,让日志窗口在前台显示 Pin（TopMost） Btn
+
+
 ## Download
 
 <a href="https://sourceforge.net/projects/styort-logviewer/files/latest/download"><img alt="Download LogViewer" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>

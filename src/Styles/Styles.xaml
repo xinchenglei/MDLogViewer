@@ -1,29 +1,41 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-                    xmlns:converters="clr-namespace:LogViewer.Converters"
-                    xmlns:helpers="clr-namespace:LogViewer.Helpers"
-                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-                    xmlns:localization="clr-namespace:LogViewer.Localization">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:LogViewer.Converters"
+    xmlns:helpers="clr-namespace:LogViewer.Helpers"
+    xmlns:localization="clr-namespace:LogViewer.Localization"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="DrawingImages.xaml"/>
+        <ResourceDictionary Source="DrawingImages.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
     <converters:MaxLengthConverter x:Key="LengthConverter" />
-    <converters:LoggerDisplayConverter x:Key="LoggerDisplayConverter"/>
-    <converters:DataConverter x:Key="DataConverter"/>
-    <converters:ProgressStateConverter x:Key="ProgressStateConverter"/>
-    <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
+    <converters:LoggerDisplayConverter x:Key="LoggerDisplayConverter" />
+    <converters:DataConverter x:Key="DataConverter" />
+    <converters:ProgressStateConverter x:Key="ProgressStateConverter" />
+    <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
     <sys:Boolean x:Key="True">True</sys:Boolean>
     <sys:Boolean x:Key="False">False</sys:Boolean>
 
-    <Style x:Key="TextBoxWithHint" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+    <Style
+        x:Key="TextBoxWithHint"
+        BasedOn="{StaticResource MaterialDesignTextBox}"
+        TargetType="TextBox">
         <Style.Resources>
-            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+            <VisualBrush
+                x:Key="CueBannerBrush"
+                AlignmentX="Left"
+                AlignmentY="Center"
+                Stretch="None">
                 <VisualBrush.Visual>
-                    <Label Padding="5,0,0,0" Content="{localization:LocBinding Search, StringFormat={}{0}...}" Foreground="LightGray" />
+                    <Label
+                        Padding="5,0,0,0"
+                        Content="{localization:LocBinding Search,
+                                                          StringFormat={}{0}...}"
+                        Foreground="LightGray" />
                 </VisualBrush.Visual>
             </VisualBrush>
         </Style.Resources>
@@ -40,75 +52,81 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-        <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
+    <Style BasedOn="{StaticResource MaterialDesignRaisedButton}" TargetType="Button">
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
     </Style>
 
-    <Style x:Key="BaseButtonStyle" TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="150"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="Foreground" Value="{Binding FontColor}"/>
-        <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
+    <Style
+        x:Key="BaseButtonStyle"
+        BasedOn="{StaticResource MaterialDesignRaisedButton}"
+        TargetType="Button">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="150" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="Foreground" Value="{Binding FontColor}" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
     </Style>
 
     <Style x:Key="DataGridCellStyle" TargetType="TextBlock">
         <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Height" Value="Auto" />
     </Style>
 
     <Style x:Key="DataGridCellWrapStyle" TargetType="TextBox">
         <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Height" Value="Auto"/>
-        <Setter Property="MaxHeight" Value="350"/>
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="MaxHeight" Value="350" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
     </Style>
 
-    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Height" Value="30"/>
+    <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="TextBox">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Height" Value="30" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property = "Background" Value="White"/>
+                <Setter Property="Background" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Text }"/>
+    <Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
     </Style>
 
     <Style x:Key="CircleImageButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="46"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="Margin" Value="5,0"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Height" Value="46" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="5,0" />
     </Style>
 
-    <Style x:Key="StartPauseNetworkReceiverButtonStyle" TargetType="Button" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
+    <Style
+        x:Key="StartPauseNetworkReceiverButtonStyle"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="Button">
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
 
         <Style.Triggers>
             <DataTrigger Binding="{Binding Path=StartIsEnabled}" Value="True">
-                <Setter Property="ToolTip" Value="{localization:LocBinding StartReadingLogsFromUDP}"/>
-                <Setter Property="Command" Value="{Binding Path=StartCommand}"/>
+                <Setter Property="ToolTip" Value="{localization:LocBinding StartReadingLogsFromUDP}" />
+                <Setter Property="Command" Value="{Binding Path=StartCommand}" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource PlayImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource PlayImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -119,21 +137,21 @@
             </DataTrigger>
 
             <DataTrigger Binding="{Binding Path=StartIsEnabled}" Value="False">
-                <Setter Property="ToolTip" Value="{localization:LocBinding StopReadingLogsFromUDP}"/>
-                <Setter Property="Command" Value="{Binding Path=PauseCommand}"/>
+                <Setter Property="ToolTip" Value="{localization:LocBinding StopReadingLogsFromUDP}" />
+                <Setter Property="Command" Value="{Binding Path=PauseCommand}" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource PauseImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource PauseImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -145,26 +163,29 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="StartPauseFileReceiverButtonStyle" TargetType="Button" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
-        
+    <Style
+        x:Key="StartPauseFileReceiverButtonStyle"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="Button">
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+
         <Style.Triggers>
             <DataTrigger Binding="{Binding Path=StartReadFromFileIsEnabled}" Value="True">
-                <Setter Property="ToolTip" Value="{localization:LocBinding StartReadingLogsFromFile}"/>
-                <Setter Property="Command" Value="{Binding Path=StartFileReadingCommand}"/>
+                <Setter Property="ToolTip" Value="{localization:LocBinding StartReadingLogsFromFile}" />
+                <Setter Property="Command" Value="{Binding Path=StartFileReadingCommand}" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource StartReadFromFileImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource StartReadFromFileImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -175,21 +196,21 @@
             </DataTrigger>
 
             <DataTrigger Binding="{Binding Path=StartReadFromFileIsEnabled}" Value="False">
-                <Setter Property="ToolTip" Value="{localization:LocBinding StopReadingLogsFromFile}"/>
-                <Setter Property="Command" Value="{Binding Path=PauseFileReadingCommand}"/>
+                <Setter Property="ToolTip" Value="{localization:LocBinding StopReadingLogsFromFile}" />
+                <Setter Property="Command" Value="{Binding Path=PauseFileReadingCommand}" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource PauseReadingFromFileImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource PauseReadingFromFileImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -201,23 +222,26 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="SettingsButtonStyle" TargetType="Button" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTip" Value="{localization:LocBinding Settings}"/>
-        <Setter Property="HorizontalAlignment" Value="Right"/>
-        
+    <Style
+        x:Key="SettingsButtonStyle"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="Button">
+        <Setter Property="ToolTip" Value="{localization:LocBinding Settings}" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                        <Image Source="{StaticResource SettingImage}" Cursor="Hand"/>
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                        <Image Cursor="Hand" Source="{StaticResource SettingImage}" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Grid>
 
                     <ControlTemplate.Triggers>
-                        <Trigger Property ="IsPressed" Value ="True">
+                        <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="RootGrid" Property="RenderTransform">
                                 <Setter.Value>
-                                    <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                    <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -227,24 +251,27 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ScrollToTop" TargetType="{x:Type Button}" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTip" Value="{localization:LocBinding ScrollToFirstLogMessage}"/>
+    <Style
+        x:Key="ScrollToTop"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="{x:Type Button}">
+        <Setter Property="ToolTip" Value="{localization:LocBinding ScrollToFirstLogMessage}" />
 
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource UpImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource UpImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -256,22 +283,25 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="AutoScrollToBottom" TargetType="{x:Type Button}" BasedOn="{StaticResource CircleImageButtonStyle}">
+    <Style
+        x:Key="AutoScrollToBottom"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="{x:Type Button}">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource AutoDownImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource AutoDownImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -283,23 +313,26 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ScrollToBottom" TargetType="{x:Type Button}" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTip" Value="{localization:LocBinding ScrollToLastLogMessage}"/>
+    <Style
+        x:Key="ScrollToBottom"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="{x:Type Button}">
+        <Setter Property="ToolTip" Value="{localization:LocBinding ScrollToLastLogMessage}" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource DownImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource DownImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -318,8 +351,8 @@
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <LinearGradientBrush.GradientStops>
                         <GradientStopCollection>
-                            <GradientStop Color="{DynamicResource BorderLightColor}" Offset="0.0" />
-                            <GradientStop Color="{DynamicResource BorderDarkColor}" Offset="1.0" />
+                            <GradientStop Offset="0.0" Color="{DynamicResource BorderLightColor}" />
+                            <GradientStop Offset="1.0" Color="{DynamicResource BorderDarkColor}" />
                         </GradientStopCollection>
                     </LinearGradientBrush.GradientStops>
                 </LinearGradientBrush>
@@ -329,16 +362,19 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border Padding="{TemplateBinding Padding}" Background="Transparent">
-                        <Rectangle HorizontalAlignment="Center" Width="1" Fill="{TemplateBinding Background}" />
+                        <Rectangle
+                            Width="1"
+                            HorizontalAlignment="Center"
+                            Fill="{TemplateBinding Background}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="BorderBrush">
             <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0" />
-                    <GradientStop Color="White" Offset="1" />
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="Black" />
+                    <GradientStop Offset="1" Color="White" />
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
@@ -349,19 +385,26 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
                     <Grid>
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,15" FontWeight="DemiBold" Foreground="Gray" x:Name="contentTB">
-                            <ContentPresenter/>
+                        <TextBlock
+                            x:Name="contentTB"
+                            Margin="10,15"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontWeight="DemiBold"
+                            Foreground="Gray">
+                            <ContentPresenter />
                         </TextBlock>
 
-                        <Thumb x:Name="PART_HeaderGripper"
-                               HorizontalAlignment="Right"
-                               Margin="0,0,-9,0"
-                               Style="{StaticResource GridViewColumnHeaderGripper}" />
+                        <Thumb
+                            x:Name="PART_HeaderGripper"
+                            Margin="0,0,-9,0"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource GridViewColumnHeaderGripper}" />
                     </Grid>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="contentTB" Property="Foreground" Value="Black"/>
+                            <Setter TargetName="contentTB" Property="Foreground" Value="Black" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -370,7 +413,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Cursor" Value="Hand" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -380,19 +423,26 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
                     <Grid>
-                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,15" FontWeight="DemiBold" Foreground="Gray" x:Name="contentTB">
-                            <ContentPresenter/>
+                        <TextBlock
+                            x:Name="contentTB"
+                            Margin="10,15"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontWeight="DemiBold"
+                            Foreground="Gray">
+                            <ContentPresenter />
                         </TextBlock>
 
-                        <Thumb x:Name="PART_HeaderGripper"
-                               HorizontalAlignment="Right"
-                               Margin="0,0,-9,0"
-                               Style="{StaticResource GridViewColumnHeaderGripper}" />
+                        <Thumb
+                            x:Name="PART_HeaderGripper"
+                            Margin="0,0,-9,0"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource GridViewColumnHeaderGripper}" />
                     </Grid>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="contentTB" Property="Foreground" Value="Black"/>
+                            <Setter TargetName="contentTB" Property="Foreground" Value="Black" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -401,7 +451,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Cursor" Value="Hand" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -411,19 +461,26 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
                     <Grid Visibility="{Binding Path=IsIpVisible, Converter={StaticResource BooleanToVisibility}}">
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,15" FontWeight="DemiBold" Foreground="Gray" x:Name="contentTB">
-                            <ContentPresenter/>
+                        <TextBlock
+                            x:Name="contentTB"
+                            Margin="10,15"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontWeight="DemiBold"
+                            Foreground="Gray">
+                            <ContentPresenter />
                         </TextBlock>
 
-                        <Thumb x:Name="PART_HeaderGripper"
-                               HorizontalAlignment="Right"
-                               Margin="0,0,-9,0"
-                               Style="{StaticResource GridViewColumnHeaderGripper}" />
+                        <Thumb
+                            x:Name="PART_HeaderGripper"
+                            Margin="0,0,-9,0"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource GridViewColumnHeaderGripper}" />
                     </Grid>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="contentTB" Property="Foreground" Value="Black"/>
+                            <Setter TargetName="contentTB" Property="Foreground" Value="Black" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -432,43 +489,61 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Cursor" Value="Hand" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="LogLevelHeaderTemplate" TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource BaseGridViewColumnHeaderStyle}">
+    <Style
+        x:Key="LogLevelHeaderTemplate"
+        BasedOn="{StaticResource BaseGridViewColumnHeaderStyle}"
+        TargetType="{x:Type GridViewColumnHeader}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
-                    <StackPanel Orientation="Horizontal" >
-                        <ComboBox Margin="10,0,0,0" ItemsSource="{Binding Path=DataContext.LogLevels, RelativeSource={RelativeSource AncestorType=Window}}" 
-                                  SelectedItem="{Binding Path=DataContext.SelectedMinLogLevel, RelativeSource={RelativeSource AncestorType=Window}}">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+                            Margin="10,0,0,0"
+                            ItemsSource="{Binding Path=DataContext.LogLevels, RelativeSource={RelativeSource AncestorType=Window}}"
+                            SelectedItem="{Binding Path=DataContext.SelectedMinLogLevel, RelativeSource={RelativeSource AncestorType=Window}}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate DataType="ComboBoxItem">
-                                    <StackPanel Orientation="Horizontal" Margin="0" Height="20">
-                                        <Image x:Name="ImageLevel" Height="15" Source="{StaticResource TraceImage}" Margin="0,0,5,0"/>
-                                        <TextBlock Text="{Binding}" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="Gray" x:Name="contentTB" Padding="0"/>
+                                    <StackPanel
+                                        Height="20"
+                                        Margin="0"
+                                        Orientation="Horizontal">
+                                        <Image
+                                            x:Name="ImageLevel"
+                                            Height="15"
+                                            Margin="0,0,5,0"
+                                            Source="{StaticResource TraceImage}" />
+                                        <TextBlock
+                                            x:Name="contentTB"
+                                            Padding="0"
+                                            VerticalAlignment="Center"
+                                            FontWeight="DemiBold"
+                                            Foreground="Gray"
+                                            Text="{Binding}" />
                                     </StackPanel>
 
                                     <DataTemplate.Triggers>
-                                        <DataTrigger  Binding="{Binding}" Value="Trace">
-                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource TraceImage}"/>
+                                        <DataTrigger Binding="{Binding}" Value="Trace">
+                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource TraceImage}" />
                                         </DataTrigger>
-                                        <DataTrigger  Binding="{Binding}" Value="Debug">
-                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource DebugImage}"/>
+                                        <DataTrigger Binding="{Binding}" Value="Debug">
+                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource DebugImage}" />
                                         </DataTrigger>
-                                        <DataTrigger  Binding="{Binding}" Value="Info">
-                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource InfoImage}"/>
+                                        <DataTrigger Binding="{Binding}" Value="Info">
+                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource InfoImage}" />
                                         </DataTrigger>
-                                        <DataTrigger  Binding="{Binding}" Value="Warn">
-                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource WarnImage}"/>
+                                        <DataTrigger Binding="{Binding}" Value="Warn">
+                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource WarnImage}" />
                                         </DataTrigger>
-                                        <DataTrigger  Binding="{Binding}" Value="Error">
-                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource ErrorImage}"/>
+                                        <DataTrigger Binding="{Binding}" Value="Error">
+                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource ErrorImage}" />
                                         </DataTrigger>
-                                        <DataTrigger  Binding="{Binding}" Value="Fatal">
-                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource FatalImage}"/>
+                                        <DataTrigger Binding="{Binding}" Value="Fatal">
+                                            <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource FatalImage}" />
                                         </DataTrigger>
                                     </DataTemplate.Triggers>
                                 </DataTemplate>
@@ -480,42 +555,107 @@
         </Setter>
     </Style>
 
-    <Style x:Key="FixedWithHeaderContainerStyle" TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource BaseGridViewColumnHeaderStyle}">
-        <Setter Property="IsEnabled" Value="False"/>
+    <Style
+        x:Key="FixedWithHeaderContainerStyle"
+        BasedOn="{StaticResource BaseGridViewColumnHeaderStyle}"
+        TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="IsEnabled" Value="False" />
     </Style>
 
     <DataTemplate x:Key="LogLevelImagesDataTemplate">
         <StackPanel Orientation="Horizontal">
-            <Image Height="20" Width="20">
+            <Image Width="20" Height="20">
                 <Image.Style>
                     <Style TargetType="{x:Type Image}">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Level}" Value="Warn">
-                                <Setter Property="Source" Value="{StaticResource WarnImage}"/>
+                                <Setter Property="Source" Value="{StaticResource WarnImage}" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Level}" Value="Error">
-                                <Setter Property="Source" Value="{StaticResource ErrorImage}"/>
+                                <Setter Property="Source" Value="{StaticResource ErrorImage}" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Level}" Value="Fatal">
-                                <Setter Property="Source" Value="{StaticResource FatalImage}"/>
+                                <Setter Property="Source" Value="{StaticResource FatalImage}" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Level}" Value="Info">
-                                <Setter Property="Source" Value="{StaticResource InfoImage}"/>
+                                <Setter Property="Source" Value="{StaticResource InfoImage}" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Level}" Value="Debug">
-                                <Setter Property="Source" Value="{StaticResource DebugImage}"/>
+                                <Setter Property="Source" Value="{StaticResource DebugImage}" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Level}" Value="Trace">
-                                <Setter Property="Source" Value="{StaticResource TraceImage}"/>
+                                <Setter Property="Source" Value="{StaticResource TraceImage}" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
                 </Image.Style>
             </Image>
-            <TextBlock Text="{Binding Path=Level}" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                Text="{Binding Path=Level}" />
         </StackPanel>
 
     </DataTemplate>
+
+
+
+
+
+    <DataTemplate x:Key="LogLevelImageHeaderTemplate">
+        <StackPanel Orientation="Horizontal">
+            <ComboBox
+                Margin="10,0,0,0"
+                ItemsSource="{Binding Path=DataContext.LogLevels, RelativeSource={RelativeSource AncestorType=Window}}"
+                SelectedItem="{Binding Path=DataContext.SelectedMinLogLevel, RelativeSource={RelativeSource AncestorType=Window}}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Height="20"
+                            Margin="0"
+                            Orientation="Horizontal">
+                            <Image
+                                x:Name="ImageLevel"
+                                Height="15"
+                                Margin="0,0,5,0"
+                                Source="{StaticResource TraceImage}" />
+                            <TextBlock
+                                x:Name="contentTB"
+                                Padding="0"
+                                VerticalAlignment="Center"
+                                FontWeight="DemiBold"
+                                Foreground="Gray"
+                                Text="{Binding}" />
+                        </StackPanel>
+
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding}" Value="Trace">
+                                <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource TraceImage}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding}" Value="Debug">
+                                <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource DebugImage}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding}" Value="Info">
+                                <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource InfoImage}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding}" Value="Warn">
+                                <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource WarnImage}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding}" Value="Error">
+                                <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource ErrorImage}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding}" Value="Fatal">
+                                <Setter TargetName="ImageLevel" Property="Source" Value="{StaticResource FatalImage}" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+    </DataTemplate>
+
+
+
 
     <DataTemplate x:Key="ReceiverColorColumnDataTemplate">
         <Grid Background="{Binding Path=Receiver.Color}" ToolTip="{Binding Path=Receiver.Name}">
@@ -523,10 +663,10 @@
                 <Style TargetType="{x:Type Grid}">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding DataContext.ColorReceiverColumnWidth, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="0">
-                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property="Margin" Value="0" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding DataContext.ColorReceiverColumnWidth, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="15">
-                            <Setter Property="Margin" Value="-2, -13, -6, -13"/>
+                            <Setter Property="Margin" Value="0" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -535,19 +675,27 @@
     </DataTemplate>
 
     <DataTemplate x:Key="LogMessageDataTemplate">
-        <helpers:SearchableTextControl Text="{Binding Path=Message, Converter={StaticResource LengthConverter}, ConverterParameter=140}"
-                       ToolTip="{Binding Path=Message}" IsHighlight="True" SearchText="{Binding Path=DataContext.HighlightSearchText, RelativeSource={RelativeSource AncestorType=Window}}"
-                       VerticalAlignment="Center" IsMatchCase="{Binding Path=DataContext.IsMatchCase, RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <helpers:SearchableTextControl
+            VerticalAlignment="Center"
+            IsHighlight="True"
+            IsMatchCase="{Binding Path=DataContext.IsMatchCase, RelativeSource={RelativeSource AncestorType=Window}}"
+            SearchText="{Binding Path=DataContext.HighlightSearchText, RelativeSource={RelativeSource AncestorType=Window}}"
+            Text="{Binding Path=Message, Converter={StaticResource LengthConverter}, ConverterParameter=140}"
+            ToolTip="{Binding Path=Message}" />
     </DataTemplate>
 
     <Style TargetType="{x:Type helpers:SearchableTextControl}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type helpers:SearchableTextControl}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <TextBlock TextWrapping="Wrap" x:Name="PART_TEXT"/>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock
+                            x:Name="PART_TEXT"
+                            IsEnabled="False"
+                            TextWrapping="Wrap" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -558,9 +706,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
-                    <Border x:Name="Border" CornerRadius="5"
-                            Background="#F4F4F4"
-                            BorderThickness="1">
+                    <Border
+                        x:Name="Border"
+                        Background="#F4F4F4"
+                        BorderThickness="1"
+                        CornerRadius="5">
                         <Border.BorderBrush>
                             <SolidColorBrush Color="Black" />
                         </Border.BorderBrush>
@@ -571,25 +721,42 @@
         </Setter>
     </Style>
 
-    <Style x:Key="TreeViewContextMenuItemStyle" TargetType="{x:Type MenuItem}" BasedOn="{StaticResource {x:Type MenuItem}}">
-        <Setter Property="Header" Value="{Binding HeaderText}"/>
-        <Setter Property="Command" Value="{Binding ActionCommand}"/>
-        <Setter Property="CommandParameter" Value="{Binding}"/>
-        <Setter Property="Icon" Value="{Binding IconImage}"/>
+    <Style
+        x:Key="TreeViewContextMenuItemStyle"
+        BasedOn="{StaticResource {x:Type MenuItem}}"
+        TargetType="{x:Type MenuItem}">
+        <Setter Property="Header" Value="{Binding HeaderText}" />
+        <Setter Property="Command" Value="{Binding ActionCommand}" />
+        <Setter Property="CommandParameter" Value="{Binding}" />
+        <Setter Property="Icon" Value="{Binding IconImage}" />
     </Style>
 
-    <Style x:Key="MessageHeaderTemplate" TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource BaseGridViewColumnHeaderStyle}">
+    <Style
+        x:Key="MessageHeaderTemplate"
+        BasedOn="{StaticResource BaseGridViewColumnHeaderStyle}"
+        TargetType="{x:Type GridViewColumnHeader}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
-                    <StackPanel Orientation="Horizontal" Width="1200">
-                        <TextBlock Margin="7,0,0,0" Text="{localization:LocBinding Message}" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="Gray" x:Name="contentTB"/>
+                    <StackPanel Width="1200" Orientation="Horizontal">
+                        <TextBlock
+                            x:Name="contentTB"
+                            Margin="7,0,0,0"
+                            VerticalAlignment="Center"
+                            FontWeight="DemiBold"
+                            Foreground="Gray"
+                            Text="{localization:LocBinding Message}" />
 
-                        <Border CornerRadius="2" Margin="10,0,0,0" Height="33" HorizontalAlignment="Right" Width="200">
+                        <Border
+                            Width="200"
+                            Height="33"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Right"
+                            CornerRadius="2">
                             <Border.Style>
                                 <Style TargetType="{x:Type Border}">
-                                    <Setter Property="BorderBrush" Value="Gray"/>
-                                    <Setter Property="BorderThickness" Value="1"/>
+                                    <Setter Property="BorderBrush" Value="Gray" />
+                                    <Setter Property="BorderThickness" Value="1" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsFocused, ElementName=SearchTextBox}" Value="True">
                                             <Setter Property="BorderBrush" Value="{Binding IconColor}" />
@@ -599,34 +766,48 @@
                             </Border.Style>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBox materialDesign:TextFieldAssist.DecorationVisibility="Collapsed" x:Name="SearchTextBox"
-                                         materialDesign:HintAssist.Hint="{localization:LocBinding Search}"
-                                         BorderThickness="0" Text="{Binding Path=SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,5,0" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" >
+                                <TextBox
+                                    x:Name="SearchTextBox"
+                                    Margin="5,0,5,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalContentAlignment="Center"
+                                    materialDesign:HintAssist.Hint="{localization:LocBinding Search}"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                    BorderThickness="0"
+                                    Text="{Binding Path=SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                     <TextBox.InputBindings>
-                                        <KeyBinding  Command="{Binding ElementName=LogsListView, Path=DataContext.SearchLogCommand}" 
-                                                     CommandParameter="{StaticResource False}" Key="Return" />
+                                        <KeyBinding
+                                            Key="Return"
+                                            Command="{Binding ElementName=LogsListView, Path=DataContext.SearchLogCommand}"
+                                            CommandParameter="{StaticResource False}" />
                                     </TextBox.InputBindings>
                                 </TextBox>
 
-                                <Button Grid.Column="1" Margin="0,0,3,0" Padding="0" Height="20" Width="20" ToolTip="{localization:LocBinding ClearSearchAndSearchResult}"
-                                        Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
-                                        Command="{Binding ElementName=LogsListView, Path=DataContext.ClearSearchResultCommand}" 
-                                        Visibility="{Binding ElementName=LogsListView, Path= DataContext.ClearSearchResultIsEnabled, Converter={StaticResource BooleanToVisibility}}">
+                                <Button
+                                    Grid.Column="1"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,3,0"
+                                    Padding="0"
+                                    Command="{Binding ElementName=LogsListView, Path=DataContext.ClearSearchResultCommand}"
+                                    Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    ToolTip="{localization:LocBinding ClearSearchAndSearchResult}"
+                                    Visibility="{Binding ElementName=LogsListView, Path=DataContext.ClearSearchResultIsEnabled, Converter={StaticResource BooleanToVisibility}}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="{x:Type Button}">
                                             <Grid x:Name="RootGrid">
-                                                <Image Source="{StaticResource CancelDrawingImage}" Cursor="Hand"/>
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Image Cursor="Hand" Source="{StaticResource CancelDrawingImage}" />
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                             </Grid>
 
                                             <ControlTemplate.Triggers>
-                                                <Trigger Property ="IsPressed" Value ="True">
+                                                <Trigger Property="IsPressed" Value="True">
                                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                                         <Setter.Value>
-                                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                                         </Setter.Value>
                                                     </Setter>
                                                 </Trigger>
@@ -637,102 +818,162 @@
                             </Grid>
                         </Border>
 
-                        <Button Height="32" Width="32" Margin="5,0" Padding="2" ToolTip="{localization:LocBinding FindAllHotKeys}" Command="{Binding ElementName=LogsListView, Path=DataContext.SearchLogCommand}" Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{StaticResource False}">
-                            <Image Source="{StaticResource SearchDrawingImage}"/>
+                        <Button
+                            Width="32"
+                            Height="32"
+                            Margin="5,0"
+                            Padding="2"
+                            Command="{Binding ElementName=LogsListView, Path=DataContext.SearchLogCommand}"
+                            CommandParameter="{StaticResource False}"
+                            Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
+                            ToolTip="{localization:LocBinding FindAllHotKeys}">
+                            <Image Source="{StaticResource SearchDrawingImage}" />
 
                             <Button.ContextMenu>
                                 <ContextMenu Style="{StaticResource BaseContextMenu}">
-                                    <MenuItem Margin="0" Header="{localization:LocBinding InAnotherWindowHotKeys}" Command="{Binding PlacementTarget.Tag.SearchLogCommand, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}}" CommandParameter="{StaticResource True}"/>
+                                    <MenuItem
+                                        Margin="0"
+                                        Command="{Binding PlacementTarget.Tag.SearchLogCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}}"
+                                        CommandParameter="{StaticResource True}"
+                                        Header="{localization:LocBinding InAnotherWindowHotKeys}" />
                                 </ContextMenu>
                             </Button.ContextMenu>
 
                             <Button.Style>
-                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+                                <Style BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding Text.Length, ElementName=SearchTextBox, UpdateSourceTrigger=PropertyChanged}" Value="0">
-                                            <Setter Property="IsEnabled" Value="False"/>
+                                            <Setter Property="IsEnabled" Value="False" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
                         </Button>
 
-                        <Button Height="32" Width="32" Padding="2" ToolTip="{localization:LocBinding FindPreviousLogMessageToolTip}" Margin="0" Command="{Binding ElementName=LogsListView, Path=DataContext.FindPreviousCommand}" IsEnabled="{Binding ElementName=LogsListView, Path= DataContext.IsEnableFindPrevious}">
-                            <Image Source="{StaticResource SearchPrevious}"/>
+                        <Button
+                            Width="32"
+                            Height="32"
+                            Margin="0"
+                            Padding="2"
+                            Command="{Binding ElementName=LogsListView, Path=DataContext.FindPreviousCommand}"
+                            IsEnabled="{Binding ElementName=LogsListView, Path=DataContext.IsEnableFindPrevious}"
+                            ToolTip="{localization:LocBinding FindPreviousLogMessageToolTip}">
+                            <Image Source="{StaticResource SearchPrevious}" />
                         </Button>
 
-                        <Button Height="32" Width="32" Padding="2" ToolTip="{localization:LocBinding FindNextLogMessageToolTip}" Margin="5,0" Command="{Binding ElementName=LogsListView, Path=DataContext.FindNextCommand}">
-                            <Image Source="{StaticResource SearchNext}"/>
+                        <Button
+                            Width="32"
+                            Height="32"
+                            Margin="5,0"
+                            Padding="2"
+                            Command="{Binding ElementName=LogsListView, Path=DataContext.FindNextCommand}"
+                            ToolTip="{localization:LocBinding FindNextLogMessageToolTip}">
+                            <Image Source="{StaticResource SearchNext}" />
                             <Button.Style>
-                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+                                <Style BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding Text.Length, ElementName=SearchTextBox, UpdateSourceTrigger=PropertyChanged}" Value="0">
-                                            <Setter Property="IsEnabled" Value="False"/>
+                                            <Setter Property="IsEnabled" Value="False" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
                         </Button>
 
-                        <Button Height="32" Width="32" Padding="2" ToolTip="{localization:LocBinding ClearAllLogsToolTip}" Command="{Binding ElementName=LogsListView, Path=DataContext.CleanCommand}" 
-                                IsEnabled="{Binding ElementName=LogsListView, Path= DataContext.CleanIsEnabled}" Margin="0">
-                            <Image Source="{StaticResource CleanWhiteImage}"/>
+                        <Button
+                            Width="32"
+                            Height="32"
+                            Margin="0"
+                            Padding="2"
+                            Command="{Binding ElementName=LogsListView, Path=DataContext.CleanCommand}"
+                            IsEnabled="{Binding ElementName=LogsListView, Path=DataContext.CleanIsEnabled}"
+                            ToolTip="{localization:LocBinding ClearAllLogsToolTip}">
+                            <Image Source="{StaticResource CleanWhiteImage}" />
                         </Button>
 
-                        <ToggleButton Margin="5,0" ToolTip="{localization:LocBinding MatchCase}" IsChecked="{Binding ElementName=LogsListView, Path=DataContext.IsMatchCase}">
+                        <ToggleButton
+                            Margin="5,0"
+                            IsChecked="{Binding ElementName=LogsListView, Path=DataContext.IsMatchCase}"
+                            ToolTip="{localization:LocBinding MatchCase}">
                             <ToggleButton.Template>
                                 <ControlTemplate>
-                                    <Border x:Name="toggleBorder" BorderThickness="0" Height="33" Width="33" BorderBrush="DeepSkyBlue">
-                                        <Image Source="{StaticResource MatchCaseImage}" Margin="1"/>
+                                    <Border
+                                        x:Name="toggleBorder"
+                                        Width="33"
+                                        Height="33"
+                                        BorderBrush="DeepSkyBlue"
+                                        BorderThickness="0">
+                                        <Image Margin="1" Source="{StaticResource MatchCaseImage}" />
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="ToggleButton.IsChecked" Value="True">
-                                            <Setter Property="BorderThickness" TargetName="toggleBorder" Value="2"/>
+                                            <Setter TargetName="toggleBorder" Property="BorderThickness" Value="2" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </ToggleButton.Template>
                         </ToggleButton>
 
-                        <ToggleButton Margin="0" ToolTip="{localization:LocBinding MatchWholeWord}" IsChecked="{Binding ElementName=LogsListView, Path=DataContext.IsMatchWholeWord}">
+                        <ToggleButton
+                            Margin="0"
+                            IsChecked="{Binding ElementName=LogsListView, Path=DataContext.IsMatchWholeWord}"
+                            ToolTip="{localization:LocBinding MatchWholeWord}">
                             <ToggleButton.Template>
                                 <ControlTemplate>
-                                    <Border x:Name="toggleBorder" BorderThickness="0" Height="33" BorderBrush="DeepSkyBlue">
-                                        <Image Source="{StaticResource MatchWordDrawingImage}" Margin="2"/>
+                                    <Border
+                                        x:Name="toggleBorder"
+                                        Height="33"
+                                        BorderBrush="DeepSkyBlue"
+                                        BorderThickness="0">
+                                        <Image Margin="2" Source="{StaticResource MatchWordDrawingImage}" />
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="ToggleButton.IsChecked" Value="True">
-                                            <Setter Property="BorderThickness" TargetName="toggleBorder" Value="2"/>
+                                            <Setter TargetName="toggleBorder" Property="BorderThickness" Value="2" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </ToggleButton.Template>
                         </ToggleButton>
 
-                        <ToggleButton Margin="5,0" ToolTip="{localization:LocBinding MatchLogLevel}" IsChecked="{Binding ElementName=LogsListView, Path=DataContext.IsMatchLogLevel}">
+                        <ToggleButton
+                            Margin="5,0"
+                            IsChecked="{Binding ElementName=LogsListView, Path=DataContext.IsMatchLogLevel}"
+                            ToolTip="{localization:LocBinding MatchLogLevel}">
                             <ToggleButton.Template>
                                 <ControlTemplate>
-                                    <Border x:Name="toggleBorder" BorderThickness="0" Height="33" BorderBrush="DeepSkyBlue">
-                                        <Image Source="{StaticResource MatchLogLevelImage}" Margin="2"/>
+                                    <Border
+                                        x:Name="toggleBorder"
+                                        Height="33"
+                                        BorderBrush="DeepSkyBlue"
+                                        BorderThickness="0">
+                                        <Image Margin="2" Source="{StaticResource MatchLogLevelImage}" />
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="ToggleButton.IsChecked" Value="True">
-                                            <Setter Property="BorderThickness" TargetName="toggleBorder" Value="2"/>
+                                            <Setter TargetName="toggleBorder" Property="BorderThickness" Value="2" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </ToggleButton.Template>
                         </ToggleButton>
 
-                        <ToggleButton Margin="5,0" ToolTip="{localization:LocBinding UseRegularExpression}" IsChecked="{Binding ElementName=LogsListView, Path=DataContext.UseRegularExpressions}">
+                        <ToggleButton
+                            Margin="5,0"
+                            IsChecked="{Binding ElementName=LogsListView, Path=DataContext.UseRegularExpressions}"
+                            ToolTip="{localization:LocBinding UseRegularExpression}">
                             <ToggleButton.Template>
                                 <ControlTemplate>
-                                    <Border x:Name="toggleBorder" BorderThickness="0" Height="33" BorderBrush="DeepSkyBlue">
-                                        <Image Source="{StaticResource RegularExpressionsImage}" Margin="0"/>
+                                    <Border
+                                        x:Name="toggleBorder"
+                                        Height="33"
+                                        BorderBrush="DeepSkyBlue"
+                                        BorderThickness="0">
+                                        <Image Margin="0" Source="{StaticResource RegularExpressionsImage}" />
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="ToggleButton.IsChecked" Value="True">
-                                            <Setter Property="BorderThickness" TargetName="toggleBorder" Value="2"/>
+                                            <Setter TargetName="toggleBorder" Property="BorderThickness" Value="2" />
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
@@ -742,7 +983,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="contentTB" Property="Foreground" Value="Black"/>
+                            <Setter TargetName="contentTB" Property="Foreground" Value="Black" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -750,107 +991,172 @@
         </Setter>
     </Style>
 
-    
-    
-    
+
+
+
     <ContextMenu x:Key="ItemContextMenu" Style="{StaticResource BaseContextMenu}">
-        <MenuItem Header="{localization:LocBinding DontShowThisLogger}"  Margin="0" Command="{Binding Path=DataContext.DontShowThisLoggerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}">
+        <MenuItem
+            Margin="0"
+            Command="{Binding Path=DataContext.DontShowThisLoggerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"
+            Header="{localization:LocBinding DontShowThisLogger}">
             <MenuItem.Icon>
-                <Image Source="{StaticResource HiddenEyeImage}"/>
+                <Image Source="{StaticResource HiddenEyeImage}" />
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Header="{localization:LocBinding DontReceiveThisLogger}" ToolTip="{localization:LocBinding DontReceiveThisLoggerToolTip}" Margin="0" Command="{Binding Path=DataContext.DontReceiveThisLoggerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}" >
+        <MenuItem
+            Margin="0"
+            Command="{Binding Path=DataContext.DontReceiveThisLoggerCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"
+            Header="{localization:LocBinding DontReceiveThisLogger}"
+            ToolTip="{localization:LocBinding DontReceiveThisLoggerToolTip}">
             <MenuItem.Icon>
-                <Image Source="{StaticResource StopImage}"/>
+                <Image Source="{StaticResource StopImage}" />
             </MenuItem.Icon>
         </MenuItem>
 
         <Separator />
 
-        <MenuItem Header="{localization:LocBinding SetTimeInterval}" InputGestureText="Ctrl+Shift+T" Margin="0" Command="{Binding Path=DataContext.SetTimeIntervalCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}" >
+        <MenuItem
+            Margin="0"
+            Command="{Binding Path=DataContext.SetTimeIntervalCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"
+            Header="{localization:LocBinding SetTimeInterval}"
+            InputGestureText="Ctrl+Shift+T">
             <MenuItem.Icon>
-                <Image Source="{StaticResource GoToTimestampDrawingImage}"/>
+                <Image Source="{StaticResource GoToTimestampDrawingImage}" />
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Header="{localization:LocBinding GoToTimestamp}" InputGestureText="Ctrl+T" Margin="0" Command="{Binding Path=DataContext.GoToTimestampCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}" >
+        <MenuItem
+            Margin="0"
+            Command="{Binding Path=DataContext.GoToTimestampCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"
+            Header="{localization:LocBinding GoToTimestamp}"
+            InputGestureText="Ctrl+T">
             <MenuItem.Icon>
-                <Image Source="{StaticResource GoToTimestampDrawingImage}"/>
+                <Image Source="{StaticResource GoToTimestampDrawingImage}" />
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Header="{localization:LocBinding GoToNextWarning}" InputGestureText="Ctrl+W" Margin="0" Command="{Binding Path=DataContext.FindNextWarningCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}" >
+        <MenuItem
+            Margin="0"
+            Command="{Binding Path=DataContext.FindNextWarningCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"
+            Header="{localization:LocBinding GoToNextWarning}"
+            InputGestureText="Ctrl+W">
             <MenuItem.Icon>
-                <Image Source="{StaticResource FindNextWarning}"/>
+                <Image Source="{StaticResource FindNextWarning}" />
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Header="{localization:LocBinding GoToNextError}" InputGestureText="Ctrl+E" Margin="0" Command="{Binding Path=DataContext.FindNextErrorCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}" >
+        <MenuItem
+            Margin="0"
+            Command="{Binding Path=DataContext.FindNextErrorCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"
+            Header="{localization:LocBinding GoToNextError}"
+            InputGestureText="Ctrl+E">
             <MenuItem.Icon>
-                <Image Source="{StaticResource FindNextError}"/>
+                <Image Source="{StaticResource FindNextError}" />
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem Header="{localization:LocBinding FindInTree}" Margin="0" Command="{Binding Path=DataContext.FindInTreeCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}">
+        <MenuItem
+            Margin="0"
+            Command="{Binding Path=DataContext.FindInTreeCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"
+            Header="{localization:LocBinding FindInTree}">
             <MenuItem.Icon>
-                <Image Source="{StaticResource TreeImage}"/>
+                <Image Source="{StaticResource TreeImage}" />
             </MenuItem.Icon>
         </MenuItem>
     </ContextMenu>
 
-    <Style x:Key="LogItemStyle" TargetType="{x:Type ListViewItem}">
+
+
+    <Style x:Key="LogRowStyle" TargetType="{x:Type DataGridRow}">
         <Style.Triggers>
+
             <DataTrigger Binding="{Binding Level}" Value="Warn">
-                <Setter Property="Foreground" Value="Orange"/>
+                <Setter Property="Foreground" Value="Orange" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Error">
-                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Foreground" Value="Red" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Fatal">
-                <Setter Property="Foreground" Value="DarkRed"/>
+                <Setter Property="Foreground" Value="DarkRed" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Info">
-                <Setter Property="Foreground" Value="Green"/>
+                <Setter Property="Foreground" Value="Green" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Debug">
-                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Foreground" Value="Black" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Trace">
-                <Setter Property="Foreground" Value="Gray"/>
+                <Setter Property="Foreground" Value="Gray" />
             </DataTrigger>
+
+
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value="0.5"/>
+                <Setter Property="Opacity" Value="0.5" />
             </Trigger>
         </Style.Triggers>
 
         <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
-        <Setter Property="Background" Value="{Binding Path=ToggleMark}"/>
-        <Setter Property="Margin" Value="0,-1,0,-1"/>
+
+        <Setter Property="Background" Value="{Binding Path=ToggleMark}" />
+        <Setter Property="Margin" Value="0,-1,0,-1" />
     </Style>
+
+
+
+    <Style x:Key="LogItemStyle" TargetType="{x:Type ListViewItem}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Level}" Value="Warn">
+                <Setter Property="Foreground" Value="Orange" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Level}" Value="Error">
+                <Setter Property="Foreground" Value="Red" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Level}" Value="Fatal">
+                <Setter Property="Foreground" Value="DarkRed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Level}" Value="Info">
+                <Setter Property="Foreground" Value="Green" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Level}" Value="Debug">
+                <Setter Property="Foreground" Value="Black" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Level}" Value="Trace">
+                <Setter Property="Foreground" Value="Gray" />
+            </DataTrigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
+        </Style.Triggers>
+
+        <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+        <Setter Property="Background" Value="{Binding Path=ToggleMark}" />
+        <Setter Property="Margin" Value="0,-1,0,-1" />
+    </Style>
+
 
     <Style x:Key="SearchLogItemStyle" TargetType="{x:Type ListViewItem}">
         <Style.Triggers>
             <DataTrigger Binding="{Binding Level}" Value="Warn">
-                <Setter Property="Foreground" Value="Orange"></Setter>
+                <Setter Property="Foreground" Value="Orange" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Error">
-                <Setter Property="Foreground" Value="Red"></Setter>
+                <Setter Property="Foreground" Value="Red" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Fatal">
-                <Setter Property="Foreground" Value="DarkRed"></Setter>
+                <Setter Property="Foreground" Value="DarkRed" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Info">
-                <Setter Property="Foreground" Value="Green"></Setter>
+                <Setter Property="Foreground" Value="Green" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Debug">
-                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Foreground" Value="Black" />
             </DataTrigger>
             <DataTrigger Binding="{Binding Level}" Value="Trace">
-                <Setter Property="Foreground" Value="Gray"></Setter>
+                <Setter Property="Foreground" Value="Gray" />
             </DataTrigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value="0.5"/>
+                <Setter Property="Opacity" Value="0.5" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -859,47 +1165,64 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
-                    <Border x:Name="Border"
-                            Background="#F4F4F4"
-                            BorderThickness="1"
-                            CornerRadius="4" Width="160">
+                    <Border
+                        x:Name="Border"
+                        Width="160"
+                        Background="#F4F4F4"
+                        BorderThickness="1"
+                        CornerRadius="4">
                         <Border.BorderBrush>
                             <SolidColorBrush Color="DimGray" />
                         </Border.BorderBrush>
-                        <StackPanel IsItemsHost="True"
-                                    KeyboardNavigation.DirectionalNavigation="Cycle" />
+                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <converters:TreeViewLineConverter x:Key="LineConverter"/>
+    <converters:TreeViewLineConverter x:Key="LineConverter" />
     <SolidColorBrush x:Key="GlyphBrush" Color="#444" />
 
-    <!-- Toggle Button -->
+    <!--  Toggle Button  -->
     <Style x:Key="ExpandCollapseToggleStyle" TargetType="ToggleButton">
-        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Focusable" Value="False" />
         <!--<Setter Property="Command" Value="{Binding Path=DataContext.ExpandTreeViewClickCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></Setter>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Grid Width="15" Height="13" SnapsToDevicePixels="True">
-                        <Rectangle Width="9" Height="9" Stroke="#919191" SnapsToDevicePixels="true">
+                    <Grid
+                        Width="15"
+                        Height="13"
+                        SnapsToDevicePixels="True">
+                        <Rectangle
+                            Width="9"
+                            Height="9"
+                            SnapsToDevicePixels="true"
+                            Stroke="#919191">
                             <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
-                                    <GradientStop Color="White" Offset="0"/>
-                                    <GradientStop Color="Silver" Offset="0.5"/>
-                                    <GradientStop Color="LightGray" Offset="1"/>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,2">
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="0.5" Color="Silver" />
+                                    <GradientStop Offset="1" Color="LightGray" />
                                 </LinearGradientBrush>
                             </Rectangle.Fill>
                         </Rectangle>
-                        <Rectangle x:Name="ExpandPath" Width="1" Height="5" Stroke="Black" SnapsToDevicePixels="true"/>
-                        <Rectangle Width="5" Height="1" Stroke="Black" SnapsToDevicePixels="true"/>
+                        <Rectangle
+                            x:Name="ExpandPath"
+                            Width="1"
+                            Height="5"
+                            SnapsToDevicePixels="true"
+                            Stroke="Black" />
+                        <Rectangle
+                            Width="5"
+                            Height="1"
+                            SnapsToDevicePixels="true"
+                            Stroke="Black" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Visibility"  TargetName="ExpandPath" Value="Collapsed"/>
+                            <Setter TargetName="ExpandPath" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -907,97 +1230,128 @@
         </Setter>
     </Style>
 
-    <!-- TreeViewItem -->
+    <!--  TreeViewItem  -->
     <Style x:Key="{x:Type TreeViewItem}" TargetType="{x:Type TreeViewItem}">
-        <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}"/>
-        <Setter Property="Visibility" Value="{Binding Path=IsVisible, Mode=TwoWay, Converter={StaticResource BooleanToVisibility}}"/>
-        <Setter Property="helpers:TVIExtender.UseExtender" Value="True"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Padding" Value="1,0,0,0"/>
+        <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}" />
+        <Setter Property="Visibility" Value="{Binding Path=IsVisible, Mode=TwoWay, Converter={StaticResource BooleanToVisibility}}" />
+        <Setter Property="helpers:TVIExtender.UseExtender" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="1,0,0,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TreeViewItem}">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition MinWidth="19" Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="19" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <!-- Connecting Lines -->
-                        <!-- Connecting Lines -->
-                        <Border x:Name="HorLn" Margin="9,0,0,0" HorizontalAlignment="Stretch" Height="1" BorderThickness="0,0,0,1">
+                        <!--  Connecting Lines  -->
+                        <!--  Connecting Lines  -->
+                        <Border
+                            x:Name="HorLn"
+                            Height="1"
+                            Margin="9,0,0,0"
+                            HorizontalAlignment="Stretch"
+                            BorderThickness="0,0,0,1">
                             <Border.BorderBrush>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="2,0" SpreadMethod="Repeat" MappingMode="Absolute">
-                                    <GradientStop Color="Transparent" Offset="0" />
-                                    <GradientStop Color="Transparent" Offset="0.499" />
-                                    <GradientStop Color="#999" Offset="0.5" />
+                                <LinearGradientBrush MappingMode="Absolute" SpreadMethod="Repeat" StartPoint="0,0" EndPoint="2,0">
+                                    <GradientStop Offset="0" Color="Transparent" />
+                                    <GradientStop Offset="0.499" Color="Transparent" />
+                                    <GradientStop Offset="0.5" Color="#999" />
                                 </LinearGradientBrush>
                             </Border.BorderBrush>
                         </Border>
-                        <Border x:Name="VerLn" Margin="0,0,1,0" Grid.RowSpan="2" VerticalAlignment="Stretch" Width="1" BorderThickness="0,0,1,0">
+                        <Border
+                            x:Name="VerLn"
+                            Grid.RowSpan="2"
+                            Width="1"
+                            Margin="0,0,1,0"
+                            VerticalAlignment="Stretch"
+                            BorderThickness="0,0,1,0">
                             <Border.BorderBrush>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,2" SpreadMethod="Repeat" MappingMode="Absolute">
-                                    <GradientStop Color="Transparent" Offset="0" />
-                                    <GradientStop Color="Transparent" Offset="0.499" />
-                                    <GradientStop Color="#999" Offset="0.5" />
+                                <LinearGradientBrush MappingMode="Absolute" SpreadMethod="Repeat" StartPoint="0,0" EndPoint="0,2">
+                                    <GradientStop Offset="0" Color="Transparent" />
+                                    <GradientStop Offset="0.499" Color="Transparent" />
+                                    <GradientStop Offset="0.5" Color="#999" />
                                 </LinearGradientBrush>
                             </Border.BorderBrush>
                         </Border>
-                        <ToggleButton Margin="-1,0,0,0" x:Name="Expander" Style="{StaticResource ExpandCollapseToggleStyle}" IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
-                        <Border Name="Bd" Grid.Column="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                            <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" MinWidth="20"/>
+                        <ToggleButton
+                            x:Name="Expander"
+                            Margin="-1,0,0,0"
+                            ClickMode="Press"
+                            IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                            Style="{StaticResource ExpandCollapseToggleStyle}" />
+                        <Border
+                            Name="Bd"
+                            Grid.Column="1"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter
+                                x:Name="PART_Header"
+                                MinWidth="20"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                ContentSource="Header" />
                         </Border>
-                        <ItemsPresenter x:Name="ItemsHost" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <ItemsPresenter
+                            x:Name="ItemsHost"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2" />
                     </Grid>
                     <ControlTemplate.Triggers>
 
-                        <!-- This trigger changes the connecting lines if the item is the last in the list -->
+                        <!--  This trigger changes the connecting lines if the item is the last in the list  -->
                         <Trigger Property="helpers:TVIExtender.IsLastOne" Value="True">
-                            <Setter TargetName="VerLn" Property="Height" Value="9"/>
-                            <Setter TargetName="VerLn" Property="VerticalAlignment" Value="Top"/>
+                            <Setter TargetName="VerLn" Property="Height" Value="9" />
+                            <Setter TargetName="VerLn" Property="VerticalAlignment" Value="Top" />
                         </Trigger>
 
                         <Trigger Property="IsExpanded" Value="false">
-                            <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="HasItems" Value="false">
-                            <Setter TargetName="Expander" Property="Visibility" Value="Hidden"/>
+                            <Setter TargetName="Expander" Property="Visibility" Value="Hidden" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="HasHeader" Value="false"/>
-                                <Condition Property="Width" Value="Auto"/>
+                                <Condition Property="HasHeader" Value="false" />
+                                <Condition Property="Width" Value="Auto" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Header" Property="MinWidth" Value="75"/>
+                            <Setter TargetName="PART_Header" Property="MinWidth" Value="75" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="HasHeader" Value="false"/>
-                                <Condition Property="Height" Value="Auto"/>
+                                <Condition Property="HasHeader" Value="false" />
+                                <Condition Property="Height" Value="Auto" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Header" Property="MinHeight" Value="19"/>
+                            <Setter TargetName="PART_Header" Property="MinHeight" Value="19" />
                         </MultiTrigger>
                         <Trigger Property="IsSelected" Value="true">
-                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsSelected" Value="true"/>
-                                <Condition Property="IsSelectionActive" Value="false"/>
+                                <Condition Property="IsSelected" Value="true" />
+                                <Condition Property="IsSelectionActive" Value="false" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Foreground" Value="White" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                         </Trigger>
                         <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
-                            <Setter Property="Background" Value="#ADD8E6"/>
+                            <Setter Property="Background" Value="#ADD8E6" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -1005,81 +1359,96 @@
         </Setter>
     </Style>
 
-    <!-- Settings Styles -->
+    <!--  Settings Styles  -->
 
-    <Style x:Key="IPTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
-        <Setter Property="Width" Value="220"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="16"/>
+    <Style
+        x:Key="IPTextBoxStyle"
+        BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+        TargetType="TextBox">
+        <Setter Property="Width" Value="220" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
 
     </Style>
 
     <Style TargetType="{x:Type Border}">
-        <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="CornerRadius" Value="3"/>
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="CornerRadius" Value="3" />
     </Style>
 
-    <Style x:Key="RemoveButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+    <Style
+        x:Key="RemoveButtonStyle"
+        BasedOn="{StaticResource MaterialDesignRaisedButton}"
+        TargetType="{x:Type Button}">
         <Style.Triggers>
             <DataTrigger Binding="{Binding SelectedReceiver}" Value="{x:Null}">
-                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="IsEnabled" Value="False" />
             </DataTrigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="RemoveIgnoreIpButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Content" Value="{localization:LocBinding Remove}"/>
-        <Setter Property="Margin" Value="120,0,0,0"/>
-        <Setter Property="Command" Value="{Binding Path=RemoveIgnoreIPCommand}"/>
+    <Style
+        x:Key="RemoveIgnoreIpButtonStyle"
+        BasedOn="{StaticResource MaterialDesignRaisedButton}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Content" Value="{localization:LocBinding Remove}" />
+        <Setter Property="Margin" Value="120,0,0,0" />
+        <Setter Property="Command" Value="{Binding Path=RemoveIgnoreIPCommand}" />
 
         <Style.Triggers>
             <DataTrigger Binding="{Binding SelectedIP}" Value="{x:Null}">
-                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="IsEnabled" Value="False" />
             </DataTrigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="AddIgnoreIpButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Content" Value="{localization:LocBinding Add}"/>
-        <Setter Property="Margin" Value="0,0,120,0"/>
-        <Setter Property="Command" Value="{Binding Path=AddIgnoreIPCommand}"/>
+    <Style
+        x:Key="AddIgnoreIpButtonStyle"
+        BasedOn="{StaticResource MaterialDesignRaisedButton}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Content" Value="{localization:LocBinding Add}" />
+        <Setter Property="Margin" Value="0,0,120,0" />
+        <Setter Property="Command" Value="{Binding Path=AddIgnoreIPCommand}" />
 
         <Style.Triggers>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=IPAddress}" Value="True"/>
+                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=IPAddress}" Value="True" />
                 </MultiDataTrigger.Conditions>
-                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="IsEnabled" Value="False" />
             </MultiDataTrigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="SetDefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTip" Value="{localization:LocBinding SetDefault}"/>
-        <Setter Property="HorizontalAlignment" Value="Right"/>
-        <Setter Property="Margin" Value="10,0"/>
-        <Setter Property="Width" Value="25"/>
+    <Style
+        x:Key="SetDefaultButtonStyle"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="{x:Type Button}">
+        <Setter Property="ToolTip" Value="{localization:LocBinding SetDefault}" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="10,0" />
+        <Setter Property="Width" Value="25" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource ReturnBackImage}" Cursor="Hand"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image Cursor="Hand" Source="{StaticResource ReturnBackImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -1091,24 +1460,30 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ExportButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTip" Value="{localization:LocBinding ExportLogsToFileToolTip}"/>
+    <Style
+        x:Key="ExportButtonStyle"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="{x:Type Button}">
+        <Setter Property="ToolTip" Value="{localization:LocBinding ExportLogsToFileToolTip}" />
 
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource ExportDrawingImage}" Cursor="Hand" Height="40"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image
+                                    Height="40"
+                                    Cursor="Hand"
+                                    Source="{StaticResource ExportDrawingImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -1120,24 +1495,30 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ImportButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource CircleImageButtonStyle}">
-        <Setter Property="ToolTip" Value="{localization:LocBinding ImportLogsToolTip}"/>
+    <Style
+        x:Key="ImportButtonStyle"
+        BasedOn="{StaticResource CircleImageButtonStyle}"
+        TargetType="{x:Type Button}">
+        <Setter Property="ToolTip" Value="{localization:LocBinding ImportLogsToolTip}" />
 
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid RenderTransformOrigin="0.5,0.5" x:Name="RootGrid">
-                                <Image Source="{StaticResource ImportDrawingImage}" Cursor="Hand" Height="40"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Grid x:Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+                                <Image
+                                    Height="40"
+                                    Cursor="Hand"
+                                    Source="{StaticResource ImportDrawingImage}" />
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger Property ="IsPressed" Value ="True">
+                                <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="RootGrid" Property="RenderTransform">
                                         <Setter.Value>
-                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>

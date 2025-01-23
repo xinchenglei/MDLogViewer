@@ -250,7 +250,7 @@
             <TextBlock
                 Margin="10,0,0,0"
                 DockPanel.Dock="Left"
-                Text="日志查看工具" />
+                Text="日志查看工具 baseOn  https://github.com/Styort/LogViewer@Styort ,modified by xinchenglei@shZYT" />
             <WrapPanel
                 Margin="0,0,5,0"
                 HorizontalAlignment="Right"
@@ -527,20 +527,23 @@
                     </Border>
 
 
-
-
-
-
                     <Border
                         Grid.Row="1"
                         Grid.Column="0"
                         Margin="1"
                         BorderBrush="Gray"
                         BorderThickness="3">
-                        <StackPanel>
+                        <Grid>
 
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*" />
+                                <RowDefinition Height="0.9*" />
+                            </Grid.RowDefinitions>
 
-                            <StackPanel Margin="1" Orientation="Horizontal">
+                            <StackPanel
+                                Grid.Row="0"
+                                Margin="1"
+                                Orientation="Horizontal">
                                 <TextBlock
                                     x:Name="contentTB"
                                     Margin="7,0,0,0"
@@ -797,82 +800,98 @@
                             </StackPanel>
 
 
-                            <DataGrid
-                                x:Name="LogsListView"
-                                AllowDrop="True"
-                                AutoGenerateColumns="False"
-                                CanUserAddRows="False"
-                                CanUserDeleteRows="False"
-                                DragOver="LogsListView_OnDragOver"
-                                Drop="LogsListView_OnDrop"
-                                IsEnabled="{Binding Path=IsEnableLogList}"
-                                ItemsSource="{Binding Path=Logs, IsAsync=True}"
-                                ScrollViewer.CanContentScroll="True"
-                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                SelectedValue="{Binding Path=SelectedLog}"
-                                SelectionChanged="OnSelectionChanged"
-                                VirtualizingPanel.IsVirtualizing="True"
-                                VirtualizingPanel.VirtualizationMode="Recycling">
+                            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                                <DataGrid
+                                    x:Name="LogsListView"
+                                    Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=1}}"
+                                    AllowDrop="True"
+                                    AutoGenerateColumns="False"
+                                    CanUserAddRows="False"
+                                    CanUserDeleteRows="False"
+                                    DragOver="LogsListView_OnDragOver"
+                                    Drop="LogsListView_OnDrop"
+                                    IsEnabled="{Binding Path=IsEnableLogList}"
+                                    ItemsSource="{Binding Path=Logs, IsAsync=True}"
+                                    RowStyle="{StaticResource LogRowStyle}"
+                                    ScrollViewer.CanContentScroll="True"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    SelectedValue="{Binding Path=SelectedLog}"
+                                    SelectionChanged="OnSelectionChanged"
+                                    VirtualizingPanel.IsVirtualizing="True"
+                                    VirtualizingPanel.VirtualizationMode="Recycling">
 
-                                <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="0.05*" Header="Color">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <ContentControl ContentTemplate="{StaticResource ReceiverColorColumnDataTemplate}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Width="0.03*" Header="">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ContentControl
+                                                        Width="{Binding DataContext.ColorReceiverColumnWidth, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                        Content="{Binding}"
+                                                        ContentTemplate="{StaticResource ReceiverColorColumnDataTemplate}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Width="0.1*" Header="Log Level">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <ContentControl ContentTemplate="{StaticResource LogLevelImagesDataTemplate}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Width="0.1*" Header="Log Level">
+                                            <DataGridTemplateColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource LogLevelImageHeaderTemplate}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.HeaderTemplate>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource LogLevelImagesDataTemplate}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
 
-                                    <DataGridTextColumn
-                                        Width="Auto"
-                                        Binding="{Binding Time, Converter={StaticResource DataConverter}}"
-                                        Header="{localization:LocBinding Time}" />
+                                        <DataGridTextColumn
+                                            Width="Auto"
+                                            Binding="{Binding Time, Converter={StaticResource DataConverter}}"
+                                            Header="{localization:LocBinding Time}"
+                                            IsReadOnly="True" />
 
-                                    <DataGridTextColumn
-                                        Width="0.1*"
-                                        Binding="{Binding Thread}"
-                                        Header="{localization:LocBinding Thread}" />
+                                        <DataGridTextColumn
+                                            Width="0.1*"
+                                            Binding="{Binding Thread}"
+                                            Header="{localization:LocBinding Thread}"
+                                            IsReadOnly="True" />
 
-                                    <DataGridTextColumn
-                                        Width="{Binding SourceColumnWidth}"
-                                        Binding="{Binding Address}"
-                                        Header="{localization:LocBinding Source}" />
+                                        <DataGridTextColumn
+                                            Width="{Binding SourceColumnWidth}"
+                                            Binding="{Binding Address}"
+                                            Header="{localization:LocBinding Source}"
+                                            IsReadOnly="True" />
 
-                                    <DataGridTextColumn
-                                        Width="0.1*"
-                                        Binding="{Binding Logger, Converter={StaticResource LoggerDisplayConverter}}"
-                                        Header="{localization:LocBinding Logger}" />
+                                        <DataGridTextColumn
+                                            Width="0.1*"
+                                            Binding="{Binding Logger, Converter={StaticResource LoggerDisplayConverter}}"
+                                            Header="{localization:LocBinding Logger}"
+                                            IsReadOnly="True" />
 
-                                    <DataGridTemplateColumn Width="0.2*" Header="{localization:LocBinding Message}">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <ContentControl ContentTemplate="{StaticResource LogMessageDataTemplate}" />
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
+                                        <DataGridTemplateColumn Width="0.2*" Header="{localization:LocBinding Message}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource LogMessageDataTemplate}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
 
-                                <DataGrid.InputBindings>
-                                    <KeyBinding
-                                        Key="W"
-                                        Command="{Binding Path=FindNextWarningCommand}"
-                                        Modifiers="Control" />
-                                    <KeyBinding
-                                        Key="E"
-                                        Command="{Binding Path=FindNextErrorCommand}"
-                                        Modifiers="Control" />
-                                </DataGrid.InputBindings>
-                            </DataGrid>
-                        </StackPanel>
+                                    <DataGrid.InputBindings>
+                                        <KeyBinding
+                                            Key="W"
+                                            Command="{Binding Path=FindNextWarningCommand}"
+                                            Modifiers="Control" />
+                                        <KeyBinding
+                                            Key="E"
+                                            Command="{Binding Path=FindNextErrorCommand}"
+                                            Modifiers="Control" />
+                                    </DataGrid.InputBindings>
+                                </DataGrid>
+                            </Grid>
+                        </Grid>
 
                     </Border>
 
@@ -946,6 +965,7 @@
                                 BorderThickness="1"
                                 FontSize="14"
                                 IsReadOnly="True"
+                                Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                                 Text="{Binding Path=SelectedLog.Message}"
                                 TextWrapping="Wrap"
                                 VerticalScrollBarVisibility="Auto" />
@@ -973,7 +993,6 @@
                                                                    StringFormat={}{0}:}" />
                                 <TextBox
                                     Grid.Column="1"
-                                    Height="35"
                                     Margin="23,0,10,0"
                                     Padding="5,0"
                                     HorizontalAlignment="Stretch"
@@ -994,7 +1013,6 @@
                                 <TextBox
                                     Grid.Column="3"
                                     Width="180"
-                                    Height="35"
                                     Margin="10,0"
                                     Padding="5,0"
                                     HorizontalAlignment="Left"
@@ -1015,7 +1033,6 @@
                                 <TextBox
                                     Grid.Column="5"
                                     Width="80"
-                                    Height="35"
                                     Margin="10,0"
                                     Padding="5,0"
                                     HorizontalAlignment="Left"
@@ -1035,8 +1052,6 @@
                                                                    StringFormat={}{0}:}" />
                                 <TextBox
                                     Grid.Column="7"
-                                    Width="80"
-                                    Height="35"
                                     Margin="10,0,0,0"
                                     Padding="5,0"
                                     HorizontalAlignment="Right"
@@ -1052,7 +1067,9 @@
                             <Grid.Resources>
                                 <Style BasedOn="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" TargetType="TextBox">
                                     <Setter Property="FontSize" Value="15" />
-                                    <Setter Property="MinWidth" Value="100" />
+                                    <Setter Property="MaxHeight" Value="40" />
+                                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                                    <Setter Property="MinWidth" Value="50" />
                                 </Style>
                             </Grid.Resources>
                         </Grid>

@@ -206,8 +206,11 @@ namespace LogViewer.MVVM.Views
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     // переходим к выбранному элементу (сделано для правильной работы поиска FindNext)
-                    LogsListView.ScrollIntoView(LogsListView.SelectedItem);
-                    LoggersTreeView.BringIntoView();
+                    if (LogsListView.SelectedItem != null)
+                    {
+                        LogsListView.ScrollIntoView(LogsListView.SelectedItem);
+                        LoggersTreeView.BringIntoView();
+                    }
                 });
             });
         }
@@ -429,7 +432,7 @@ namespace LogViewer.MVVM.Views
 
         private void OnWindowMinimizeBtnClicked(object sender, RoutedEventArgs e)
         {
-            WindowState= WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
 
         private void OnWindowMaximizeBtnClicked(object sender, RoutedEventArgs e)
