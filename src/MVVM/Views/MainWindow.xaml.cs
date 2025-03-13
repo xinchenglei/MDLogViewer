@@ -197,7 +197,7 @@ namespace LogViewer.MVVM.Views
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // если включен автоскролл и при этом человек нажал на какой-то элемент лога - выключаем автоскролл
+            //// если включен автоскролл и при этом человек нажал на какой-то элемент лога - выключаем автоскролл
             if (AutoScrollEnabled)
                 AutoScrollEnabled = false;
 

@@ -801,13 +801,12 @@
 
 
                             <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+
+
                                 <DataGrid
                                     x:Name="LogsListView"
                                     Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid, AncestorLevel=1}}"
                                     AllowDrop="True"
-                                    AutoGenerateColumns="False"
-                                    CanUserAddRows="False"
-                                    CanUserDeleteRows="False"
                                     DragOver="LogsListView_OnDragOver"
                                     Drop="LogsListView_OnDrop"
                                     IsEnabled="{Binding Path=IsEnableLogList}"
@@ -815,12 +814,12 @@
                                     RowStyle="{StaticResource LogRowStyle}"
                                     ScrollViewer.CanContentScroll="True"
                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    ScrollViewer.ScrollChanged="LogsListView_OnScrollChanged"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                                     SelectedValue="{Binding Path=SelectedLog}"
                                     SelectionChanged="OnSelectionChanged"
                                     VirtualizingPanel.IsVirtualizing="True"
                                     VirtualizingPanel.VirtualizationMode="Recycling">
-
                                     <DataGrid.Columns>
                                         <DataGridTemplateColumn Width="0.03*" Header="">
                                             <DataGridTemplateColumn.CellTemplate>
@@ -832,7 +831,6 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
-
                                         <DataGridTemplateColumn Width="0.1*" Header="Log Level">
                                             <DataGridTemplateColumn.HeaderTemplate>
                                                 <DataTemplate>
@@ -851,7 +849,6 @@
                                             Binding="{Binding Time, Converter={StaticResource DataConverter}}"
                                             Header="{localization:LocBinding Time}"
                                             IsReadOnly="True" />
-
                                         <DataGridTextColumn
                                             Width="0.1*"
                                             Binding="{Binding Thread}"
@@ -877,7 +874,9 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
+
                                     </DataGrid.Columns>
+
 
                                     <DataGrid.InputBindings>
                                         <KeyBinding

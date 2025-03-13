@@ -1067,6 +1067,9 @@
     </ContextMenu>
 
 
+    
+    
+    
 
     <Style x:Key="LogRowStyle" TargetType="{x:Type DataGridRow}">
         <Style.Triggers>
